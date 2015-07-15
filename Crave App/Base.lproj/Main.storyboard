@@ -1,25 +1,175 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QMC-TT-aj4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Cuisines-->
+        <scene sceneID="0vY-ee-YRf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G6V-U0-y7I" customClass="CuisineViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="jph-mJ-nn9"/>
+                        <viewControllerLayoutGuide type="bottom" id="CmT-3W-2mm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="EnL-yi-ekl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Cuisines" image="Global" id="Ygv-qc-892">
+                        <inset key="imageInsets" minX="-1" minY="-1" maxX="-1" maxY="-1"/>
+                    </tabBarItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ziq-cQ-0Oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="596" y="-22"/>
+        </scene>
+        <!--Chooser-->
+        <scene sceneID="pbO-xa-rIf">
+            <objects>
+                <viewController id="gPO-iI-zoC" customClass="ChooseViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U66-F0-bVF"/>
+                        <viewControllerLayoutGuide type="bottom" id="f8k-aE-NiN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FBg-xf-t6d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chooser" image="Choose" id="eX0-Zq-2WM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfK-40-HjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="726"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="nKj-RI-P8W">
+            <objects>
+                <viewController id="scQ-gZ-irI" customClass="UserViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fcp-l4-V74"/>
+                        <viewControllerLayoutGuide type="bottom" id="CDi-oW-fcK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lmg-jy-6OZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="User" id="SK6-sd-RRT">
+                        <inset key="imageInsets" minX="-1" minY="-1" maxX="-1" maxY="-1"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jg-ph-pQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="1446"/>
+        </scene>
+        <!--Your Plate-->
+        <scene sceneID="MwC-fL-9vo">
+            <objects>
+                <viewController id="NZr-fE-VoD" customClass="PlateViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eNX-aa-9NK"/>
+                        <viewControllerLayoutGuide type="bottom" id="TSB-4J-BPc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jEX-ai-RoM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tWF-Bl-8Kw">
+                                <rect key="frame" x="0.0" y="125" width="600" height="426"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" rowHeight="100" id="daL-dU-o02" customClass="PlateTableViewCell" customModule="Crave_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="daL-dU-o02" id="oO6-GI-H6u">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Labjhfk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-8e-RmM">
+                                                    <rect key="frame" x="69" y="8" width="229" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="229" id="2fo-oT-Okt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IaF-8e-RmM" firstAttribute="leading" secondItem="oO6-GI-H6u" secondAttribute="leadingMargin" constant="54" id="9FG-cc-zXu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IaF-8e-RmM" secondAttribute="bottom" constant="35.5" id="Iuu-MS-hK1"/>
+                                                <constraint firstItem="IaF-8e-RmM" firstAttribute="top" secondItem="oO6-GI-H6u" secondAttribute="topMargin" id="hNE-k5-T45"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="restaurantLabel" destination="IaF-8e-RmM" id="ZYu-rb-h6I"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIO-tQ-lDI">
+                                <rect key="frame" x="0.0" y="20" width="600" height="105"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Plate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLi-oL-2lp">
+                                        <rect key="frame" x="8" y="8" width="264" height="48"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="53"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No frills. No games. Just mind reading." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lj-hf-wL1">
+                                        <rect key="frame" x="13" y="64" width="298" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Your Plate" image="Plate" id="SdA-Kl-8y4">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="subtitleLabel" destination="9Lj-hf-wL1" id="FTm-dd-7Qv"/>
+                        <outlet property="tableView" destination="tWF-Bl-8Kw" id="cau-K7-DnW"/>
+                        <outlet property="titleLabel" destination="vLi-oL-2lp" id="Llj-Jv-LYe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7A4-uL-7KJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="-776"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="79x-eR-XYN">
+            <objects>
+                <tabBarController id="QMC-TT-aj4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="891-0C-hxa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NZr-fE-VoD" kind="relationship" relationship="viewControllers" id="qCo-3G-i7a"/>
+                        <segue destination="G6V-U0-y7I" kind="relationship" relationship="viewControllers" id="ua7-fk-5Wv"/>
+                        <segue destination="gPO-iI-zoC" kind="relationship" relationship="viewControllers" id="JYG-iZ-fGD"/>
+                        <segue destination="scQ-gZ-irI" kind="relationship" relationship="viewControllers" id="0yH-E3-djo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8D-12-Jni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-224" y="263"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Choose" width="64" height="64"/>
+        <image name="Global" width="50" height="50"/>
+        <image name="Plate" width="64" height="64"/>
+        <image name="User" width="64" height="64"/>
+    </resources>
 </document>

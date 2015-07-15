@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30B8D1B56DF61001B246A /* AppDelegate.swift */; };
-		28E30B901B56DF61001B246A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30B8F1B56DF61001B246A /* ViewController.swift */; };
 		28E30B931B56DF61001B246A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E30B911B56DF61001B246A /* Main.storyboard */; };
 		28E30B951B56DF61001B246A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E30B941B56DF61001B246A /* Images.xcassets */; };
 		28E30B981B56DF61001B246A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E30B961B56DF61001B246A /* LaunchScreen.xib */; };
 		28E30BA41B56DF61001B246A /* Crave_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BA31B56DF61001B246A /* Crave_AppTests.swift */; };
+		28E30BAE1B56E00A001B246A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E30BAD1B56E00A001B246A /* Realm.framework */; };
+		28E30BAF1B56E00A001B246A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28E30BAD1B56E00A001B246A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28E30BB21B56E00F001B246A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E30BB11B56E00F001B246A /* RealmSwift.framework */; };
+		28E30BB31B56E00F001B246A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28E30BB11B56E00F001B246A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB51B56E1E8001B246A /* PlateViewController.swift */; };
+		28E30BB81B56E1F3001B246A /* CuisineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB71B56E1F3001B246A /* CuisineViewController.swift */; };
+		28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB91B56E200001B246A /* ChooseViewController.swift */; };
+		28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBB1B56E207001B246A /* UserViewController.swift */; };
+		28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +33,38 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		28E30BB01B56E00A001B246A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				28E30BB31B56E00F001B246A /* RealmSwift.framework in Embed Frameworks */,
+				28E30BAF1B56E00A001B246A /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		28E30B881B56DF61001B246A /* Crave App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crave App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E30B8C1B56DF61001B246A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E30B8D1B56DF61001B246A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28E30B8F1B56DF61001B246A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28E30B921B56DF61001B246A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28E30B941B56DF61001B246A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		28E30B971B56DF61001B246A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		28E30B9D1B56DF61001B246A /* Crave AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crave AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E30BA21B56DF61001B246A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E30BA31B56DF61001B246A /* Crave_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crave_AppTests.swift; sourceTree = "<group>"; };
+		28E30BAD1B56E00A001B246A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		28E30BB11B56E00F001B246A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		28E30BB51B56E1E8001B246A /* PlateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateViewController.swift; sourceTree = "<group>"; };
+		28E30BB71B56E1F3001B246A /* CuisineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineViewController.swift; sourceTree = "<group>"; };
+		28E30BB91B56E200001B246A /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
+		28E30BBB1B56E207001B246A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E30BB21B56E00F001B246A /* RealmSwift.framework in Frameworks */,
+				28E30BAE1B56E00A001B246A /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +90,8 @@
 		28E30B7F1B56DF61001B246A = {
 			isa = PBXGroup;
 			children = (
+				28E30BB11B56E00F001B246A /* RealmSwift.framework */,
+				28E30BAD1B56E00A001B246A /* Realm.framework */,
 				28E30B8A1B56DF61001B246A /* Crave App */,
 				28E30BA01B56DF61001B246A /* Crave AppTests */,
 				28E30B891B56DF61001B246A /* Products */,
@@ -77,8 +110,9 @@
 		28E30B8A1B56DF61001B246A /* Crave App */ = {
 			isa = PBXGroup;
 			children = (
+				28E30BBD1B56F397001B246A /* Views */,
+				28E30BB41B56E1AC001B246A /* View Controllers */,
 				28E30B8D1B56DF61001B246A /* AppDelegate.swift */,
-				28E30B8F1B56DF61001B246A /* ViewController.swift */,
 				28E30B911B56DF61001B246A /* Main.storyboard */,
 				28E30B941B56DF61001B246A /* Images.xcassets */,
 				28E30B961B56DF61001B246A /* LaunchScreen.xib */,
@@ -112,6 +146,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		28E30BB41B56E1AC001B246A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				28E30BB51B56E1E8001B246A /* PlateViewController.swift */,
+				28E30BB71B56E1F3001B246A /* CuisineViewController.swift */,
+				28E30BB91B56E200001B246A /* ChooseViewController.swift */,
+				28E30BBB1B56E207001B246A /* UserViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		28E30BBD1B56F397001B246A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +175,7 @@
 				28E30B841B56DF61001B246A /* Sources */,
 				28E30B851B56DF61001B246A /* Frameworks */,
 				28E30B861B56DF61001B246A /* Resources */,
+				28E30BB01B56E00A001B246A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,8 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E30B901B56DF61001B246A /* ViewController.swift in Sources */,
 				28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */,
+				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
+				28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */,
+				28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */,
+				28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */,
+				28E30BB81B56E1F3001B246A /* CuisineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +400,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Crave App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +414,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Crave App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
