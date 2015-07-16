@@ -8,11 +8,20 @@
 
 import UIKit
 
-class ChooseViewController: UIViewController {
+class ChooseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var setupLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var incorrectButton: UIButton!
+    @IBOutlet weak var suggestionLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +30,24 @@ class ChooseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChooseCell", forIndexPath: indexPath) as! ChooseTableViewCell
+        
+        cell.mealLabelHolder = "The thing you wanna eat"
+        
+        let row = indexPath.row
+        
+        /* how to add images to a cell, for later on:
+        cell.imageView?.image = UIImage(named: "YOUR_FILENAME_HERE")
+        */
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
 
     /*
     // MARK: - Navigation

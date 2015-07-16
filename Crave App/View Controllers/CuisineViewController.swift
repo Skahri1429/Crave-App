@@ -8,11 +8,18 @@
 
 import UIKit
 
-class CuisineViewController: UIViewController {
+class CuisineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +27,24 @@ class CuisineViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CuisineCell", forIndexPath: indexPath) as! CuisineTableViewCell
+        
+        cell.cuisineLabelHolder = "Cuisines"
+        
+        let row = indexPath.row
+        
+        /* how to add images to a cell, for later on:
+        cell.imageView?.image = UIImage(named: "YOUR_FILENAME_HERE")
+        */
+        
+        return cell
+    }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
 
     /*
     // MARK: - Navigation

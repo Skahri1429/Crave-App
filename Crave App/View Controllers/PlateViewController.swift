@@ -13,8 +13,8 @@ class PlateViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
-    
+    @IBOutlet weak var foodImage: UIImageView!
+    //@IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,13 @@ class PlateViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MealCell", forIndexPath: indexPath) as! PlateTableViewCell
         
-        cell.restaurantLabelHolder = "labl"
+        cell.restaurantLabelHolder = "The label functionality is working"
         
         let row = indexPath.row
+        
+        /* how to add images to a cell, for later on:
+        cell.imageView?.image = UIImage(named: "YOUR_FILENAME_HERE")
+        */
         
         return cell
     }

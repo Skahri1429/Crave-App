@@ -21,6 +21,8 @@
 		28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB91B56E200001B246A /* ChooseViewController.swift */; };
 		28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBB1B56E207001B246A /* UserViewController.swift */; };
 		28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */; };
+		28E30BC11B57441B001B246A /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC01B57441B001B246A /* CuisineTableViewCell.swift */; };
+		28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		28E30BB91B56E200001B246A /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		28E30BBB1B56E207001B246A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateTableViewCell.swift; sourceTree = "<group>"; };
+		28E30BC01B57441B001B246A /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
+		28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */,
+				28E30BC01B57441B001B246A /* CuisineTableViewCell.swift */,
+				28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,11 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */,
 				28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */,
 				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
 				28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */,
 				28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */,
 				28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */,
+				28E30BC11B57441B001B246A /* CuisineTableViewCell.swift in Sources */,
 				28E30BB81B56E1F3001B246A /* CuisineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

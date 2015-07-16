@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AC8456D0-54E5-4C9B-BCA3-19C156A6CDD5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</key>
+		<string>https://github.com/Skahri1429/Crave-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Crave App.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Skahri1429/Crave-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Crave%20App</string>
+		</dict>
+	</array>
+</dict>
+</plist>
