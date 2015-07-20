@@ -1,0 +1,3 @@
+[submodule "4sq"]
+	path = 4sq
+	url = https://github.com/Constantine-Fry/das-quadrat.git

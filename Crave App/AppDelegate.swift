@@ -7,18 +7,45 @@
 //
 
 import UIKit
+import SenseSdk
+import Realm
+import QuadratTouch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    // How to detect if first time launching
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let client = Client(clientID:"GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY",
+            clientSecret:   "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU",
+            redirectURL:    "cravefoodfinder://foursquare")
+        
+        var configuration = Configuration(client:client)
+        Session.setupSharedSessionWithConfiguration(configuration)
+        
+        let session = Session.sharedSession()
+        
         // Override point for customization after application launch.
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+        if firstLaunch  {
+            println("Not the first launch")
+        } else {
+            println("First launch, setting NSUserDefault.")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+        }
+        
+       // let urlAccess = authorizeUserUsingClientId("GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY", callbackURLString: "cravefoodfinder://foursquare", allowShowingAppStore: true)
+        
+      //  let errorCode = accessCodeForFSOAuthURL(urlAccess, error:
         return true
     }
 
+ //   class func authorizeUserUsingClientId(clientID: String, callbackURLString: String, allowShowingAppStore: Bool) -> FSOAuthStatusCode {}
+    
+  //  class func accessCodeForFSOAuthURL(url: NSURL, error errorCode: FSOAuthErrorCode) -> String {}
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

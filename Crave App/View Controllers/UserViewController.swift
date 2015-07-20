@@ -10,6 +10,19 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+    switch segmentedControl.selectedSegmentIndex {
+    case 0:
+        textLabel.text = "First segment selected"
+    case 1:
+        textLabel.text = "Second segment selected"
+    default:
+        textLabel.text = "You fail at life"
+    }
+    
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

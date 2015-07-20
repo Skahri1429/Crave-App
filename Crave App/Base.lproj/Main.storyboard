@@ -88,18 +88,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already at a restaurant and can't decide what to get? Let us help you out." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIT-XI-jf0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Already at a restaurant and can't decide what to get? Let us help you out." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIT-XI-jf0">
                                 <rect key="frame" x="123" y="28" width="354" height="72"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We think you're at" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCj-Ag-5Xl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="We think you're at" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCj-Ag-5Xl">
                                 <rect key="frame" x="174" y="133" width="138" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Macaroni Grill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiH-cC-AP6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Macaroni Grill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiH-cC-AP6">
                                 <rect key="frame" x="320" y="133" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,7 +111,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ev-Se-xzi">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ev-Se-xzi">
                                 <rect key="frame" x="202" y="156" width="196" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <state key="normal" title="Incorrect? Tap here to enter your location">
@@ -141,6 +141,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IiH-cC-AP6" secondAttribute="trailing" constant="157" id="MYj-s7-xT1"/>
+                            <constraint firstItem="IiH-cC-AP6" firstAttribute="leading" secondItem="FCj-Ag-5Xl" secondAttribute="trailing" constant="8" id="PXc-jD-szf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KIT-XI-jf0" secondAttribute="trailing" constant="107" id="YuH-eU-oqt"/>
+                            <constraint firstItem="IiH-cC-AP6" firstAttribute="top" secondItem="KIT-XI-jf0" secondAttribute="bottom" constant="33" id="ZH0-6W-6CC"/>
+                            <constraint firstItem="KIT-XI-jf0" firstAttribute="leading" secondItem="FBg-xf-t6d" secondAttribute="leadingMargin" constant="107" id="cRg-WC-sFx"/>
+                            <constraint firstItem="8Ev-Se-xzi" firstAttribute="top" secondItem="IiH-cC-AP6" secondAttribute="bottom" constant="2" id="foQ-5Y-csm"/>
+                            <constraint firstItem="FCj-Ag-5Xl" firstAttribute="leading" secondItem="FBg-xf-t6d" secondAttribute="leadingMargin" constant="158" id="wI1-o6-aIW"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chooser" image="Choose" id="eX0-Zq-2WM"/>
                     <connections>
@@ -167,11 +176,33 @@
                     <view key="view" contentMode="scaleToFill" id="lmg-jy-6OZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Dv-fvz">
+                                <rect key="frame" x="233" y="28" width="123" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="scQ-gZ-irI" eventType="valueChanged" id="2uX-sI-kFA"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First segment selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueR-p4-Bcv">
+                                <rect key="frame" x="212" y="110" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="User" id="SK6-sd-RRT">
                         <inset key="imageInsets" minX="-1" minY="-1" maxX="-1" maxY="-1"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="zSC-Dv-fvz" id="DbC-yo-2Ml"/>
+                        <outlet property="textLabel" destination="ueR-p4-Bcv" id="GQm-Ui-tNj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jg-ph-pQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
