@@ -32,6 +32,7 @@
 		28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */; };
 		28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */; };
 		28EDD9551B5DA6900075A9E9 /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 28EDD9501B5DA5980075A9E9 /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28EDD95B1B5EC95B0075A9E9 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD95A1B5EC95B0075A9E9 /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewCell.swift; sourceTree = "<group>"; };
 		28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChoiceCollectionDataSource.swift; sourceTree = "<group>"; };
 		28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = 4sq/Source/Quadrat.xcodeproj; sourceTree = "<group>"; };
+		28EDD95A1B5EC95B0075A9E9 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				28E30BB71B56E1F3001B246A /* CuisineViewController.swift */,
 				28E30BB91B56E200001B246A /* ChooseViewController.swift */,
 				28E30BBB1B56E207001B246A /* UserViewController.swift */,
+				28EDD95A1B5EC95B0075A9E9 /* SearchTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */,
 				28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */,
 				28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */,
+				28EDD95B1B5EC95B0075A9E9 /* SearchTableViewController.swift in Sources */,
 				28E30BC11B57441B001B246A /* CuisineTableViewCell.swift in Sources */,
 				28E30BB81B56E1F3001B246A /* CuisineViewController.swift in Sources */,
 			);

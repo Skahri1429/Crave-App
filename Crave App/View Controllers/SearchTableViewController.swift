@@ -6,92 +6,81 @@
 //  Copyright (c) 2015 Sarthak Khillon. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
-class SearchTableViewController: UITableViewController {
+import QuadratTouch
 
+protocol SearchTableViewControllerDelegate: class {
+    func searchTableViewController(controller: SearchTableViewController, didSelectVenue venue:JSONParameters)
+}
+
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
+    var session: Session!
+    var location: CLLocation!
+    var venues: [JSONParameters]!
+    let distanceFormatter = MKDistanceFormatter()
+    var currentTask: Task?
+    
+    weak var delegate: SearchTableViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        // Strip out all the leading and trailing spaces.
+        let whitespaceCharacterSet = NSCharacterSet.whitespaceCharacterSet()
+        let strippedString = searchController.searchBar.text.stringByTrimmingCharactersInSet(whitespaceCharacterSet)
+        
+        if self.location == nil {
+            return
+        }
+        
+        currentTask?.cancel()
+        var parameters = [Parameter.query:strippedString]
+        parameters += self.location.parameters()
+        currentTask = session.venues.search(parameters) {
+            (result) -> Void in
+            if let response = result.response {
+                self.venues = response["venues"] as? [JSONParameters]
+                self.tableView.reloadData()
+            }
+        }
+        currentTask?.start()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        let venue = venues[indexPath.row]
+        if let venueLocation = venue["location"] as? JSONParameters {
+            var detailText = ""
+            if let distance = venueLocation["distance"] as? CLLocationDistance {
+                detailText = distanceFormatter.stringFromDistance(distance)
+            }
+            if let address = venueLocation["address"] as? String {
+                detailText = detailText +  " - " + address
+            }
+            cell.detailTextLabel?.text = detailText
+        }
+        cell.textLabel?.text = venue["name"] as? String
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.venues != nil {
+            return self.venues!.count
+        }
+        return 0
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let venueInfo = venues![indexPath.row] as JSONParameters!
+        delegate?.searchTableViewController(self, didSelectVenue: venueInfo)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

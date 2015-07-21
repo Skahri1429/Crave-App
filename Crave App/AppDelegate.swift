@@ -22,11 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let client = Client(clientID:"GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY",
             clientSecret:   "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU",
             redirectURL:    "cravefoodfinder://foursquare")
-        
         var configuration = Configuration(client:client)
+        configuration.mode = "foursquare"
+        configuration.shouldControllNetworkActivityIndicator = true
         Session.setupSharedSessionWithConfiguration(configuration)
-        
-        let session = Session.sharedSession()
         
         // Override point for customization after application launch.
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
@@ -41,6 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       //  let errorCode = accessCodeForFSOAuthURL(urlAccess, error:
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        return Session.sharedSession().handleURL(url)
     }
 
  //   class func authorizeUserUsingClientId(clientID: String, callbackURLString: String, allowShowingAppStore: Bool) -> FSOAuthStatusCode {}
