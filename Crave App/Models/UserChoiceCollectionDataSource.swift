@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 import QuadratTouch
 import Foundation
-import AlamoFire
+import Alamofire
+import SwiftyJSON
 
 typealias JSONParameters = [String: AnyObject]
 
@@ -54,12 +55,17 @@ class UserChoiceCollectionDataSource: PlateViewController {
     */
     
     
-    func tagSearchTerms() -> [String] {
-        Alamofire.request(.GET, "http://httpbin.orgget")
+    func conductSearch(relevantSearchTerms: TagData) -> [String] {
+        let jsonFile: String!
+        Alamofire.request(.GET, "https://api.foursquare.com/v2/venues/search?client_id=GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY&client_secret=KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU&ll=40.7,-74&query=\(relevantSearchTerms)&v=20140806&m=foursquare")
             .responseJSON { _, _, JSON, _ in
                 println(JSON)
         }
+        
+        return ["stuff"]
+        
+        
     }
     
-    func conductSearch()
+    func conductSearch() {}
 }

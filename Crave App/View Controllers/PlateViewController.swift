@@ -31,6 +31,8 @@ class PlateViewController: UITableViewController, UITableViewDataSource, CLLocat
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        // ACCESS USERCHOICECOLLECTIONDATASOURCE HERE 
 
         numberFormatter.numberStyle = .DecimalStyle
         

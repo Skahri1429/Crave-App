@@ -8,7 +8,7 @@
 
 
 class TagData {
-    
+    // will create a list of relevant search terms to the user. 
     // set below to new values whenever the user eats.
     var mutableRelatedTags = []
     

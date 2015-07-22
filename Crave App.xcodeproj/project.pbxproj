@@ -31,12 +31,10 @@
 		28E30BC11B57441B001B246A /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC01B57441B001B246A /* CuisineTableViewCell.swift */; };
 		28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */; };
 		28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */; };
-		28EDD9551B5DA6900075A9E9 /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 28EDD9501B5DA5980075A9E9 /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28EDD95B1B5EC95B0075A9E9 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD95A1B5EC95B0075A9E9 /* SearchTableViewController.swift */; };
 		28EDD98B1B5F2CB30075A9E9 /* TagData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD98A1B5F2CB30075A9E9 /* TagData.swift */; };
 		28EDD98D1B5F356A0075A9E9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD98C1B5F356A0075A9E9 /* SearchViewController.swift */; };
-		28EDD9CB1B5F7CB90075A9E9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EDD9C41B5F7BD30075A9E9 /* Alamofire.framework */; };
-		28EDD9CC1B5F7CB90075A9E9 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28EDD9C41B5F7BD30075A9E9 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A66EEA8CF9DCF4E81BDA281F /* Pods_Crave_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB1A72B772ACA01DD285677 /* Pods_Crave_App.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,62 +44,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 28E30B871B56DF61001B246A;
 			remoteInfo = "Crave App";
-		};
-		28EDD94D1B5DA5980075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70891A0EBAE700AFAC33;
-			remoteInfo = Quadrat;
-		};
-		28EDD94F1B5DA5980075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70DA1A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
-		28EDD9521B5DA6590075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 476B70D91A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
-		28EDD9C31B5F7BD30075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		28EDD9C51B5F7BD30075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
-		28EDD9C71B5F7BD30075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		28EDD9C91B5F7BD30075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire OSX Tests";
-		};
-		28EDD9CD1B5F7CB90075A9E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -115,7 +57,6 @@
 				28E30BB31B56E00F001B246A /* RealmSwift.framework in Embed Frameworks */,
 				28E30BAF1B56E00A001B246A /* Realm.framework in Embed Frameworks */,
 				2803B9201B5C769100CBAC87 /* SenseSdk.framework in Embed Frameworks */,
-				28EDD9CC1B5F7CB90075A9E9 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,7 +67,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				28EDD9551B5DA6900075A9E9 /* QuadratTouch.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,11 +98,12 @@
 		28E30BC01B57441B001B246A /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 		28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewCell.swift; sourceTree = "<group>"; };
 		28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChoiceCollectionDataSource.swift; sourceTree = "<group>"; };
-		28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = 4sq/Source/Quadrat.xcodeproj; sourceTree = "<group>"; };
 		28EDD95A1B5EC95B0075A9E9 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		28EDD98A1B5F2CB30075A9E9 /* TagData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagData.swift; sourceTree = "<group>"; };
 		28EDD98C1B5F356A0075A9E9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = AlamoFire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		42A704ADB18D561E3151CF68 /* Pods-Crave App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crave App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crave App/Pods-Crave App.release.xcconfig"; sourceTree = "<group>"; };
+		898703216405F783F485EF31 /* Pods-Crave App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crave App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crave App/Pods-Crave App.debug.xcconfig"; sourceTree = "<group>"; };
+		8AB1A72B772ACA01DD285677 /* Pods_Crave_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crave_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2803B91E1B5C763600CBAC87 /* libz.dylib in Frameworks */,
-				28EDD9CB1B5F7CB90075A9E9 /* Alamofire.framework in Frameworks */,
 				2803B91C1B5C762D00CBAC87 /* SystemConfiguration.framework in Frameworks */,
 				2803B91A1B5C762200CBAC87 /* CoreMotion.framework in Frameworks */,
 				2803B9181B5C761A00CBAC87 /* CoreLocation.framework in Frameworks */,
@@ -179,6 +119,7 @@
 				28E30BAE1B56E00A001B246A /* Realm.framework in Frameworks */,
 				2803B91F1B5C769100CBAC87 /* SenseSdk.framework in Frameworks */,
 				2803B9161B5C741100CBAC87 /* SenseSdk.framework in Frameworks */,
+				A66EEA8CF9DCF4E81BDA281F /* Pods_Crave_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,8 +136,6 @@
 		28E30B7F1B56DF61001B246A = {
 			isa = PBXGroup;
 			children = (
-				28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */,
-				28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */,
 				2803B91D1B5C763600CBAC87 /* libz.dylib */,
 				2803B91B1B5C762D00CBAC87 /* SystemConfiguration.framework */,
 				2803B9191B5C762200CBAC87 /* CoreMotion.framework */,
@@ -207,6 +146,8 @@
 				28E30B8A1B56DF61001B246A /* Crave App */,
 				28E30BA01B56DF61001B246A /* Crave AppTests */,
 				28E30B891B56DF61001B246A /* Products */,
+				6BDF39D68D497EE4D42E651B /* Pods */,
+				D77BB64539E020682E2BCA1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,24 +240,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		28EDD9491B5DA5980075A9E9 /* Products */ = {
+		6BDF39D68D497EE4D42E651B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				28EDD94E1B5DA5980075A9E9 /* Quadrat.framework */,
-				28EDD9501B5DA5980075A9E9 /* QuadratTouch.framework */,
+				898703216405F783F485EF31 /* Pods-Crave App.debug.xcconfig */,
+				42A704ADB18D561E3151CF68 /* Pods-Crave App.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		28EDD9BD1B5F7BD30075A9E9 /* Products */ = {
+		D77BB64539E020682E2BCA1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				28EDD9C41B5F7BD30075A9E9 /* Alamofire.framework */,
-				28EDD9C61B5F7BD30075A9E9 /* Alamofire.framework */,
-				28EDD9C81B5F7BD30075A9E9 /* Alamofire iOS Tests.xctest */,
-				28EDD9CA1B5F7BD30075A9E9 /* Alamofire OSX Tests.xctest */,
+				8AB1A72B772ACA01DD285677 /* Pods_Crave_App.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,17 +264,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28E30BA71B56DF61001B246A /* Build configuration list for PBXNativeTarget "Crave App" */;
 			buildPhases = (
+				C2797FB0556749607D96A595 /* Check Pods Manifest.lock */,
 				28E30B841B56DF61001B246A /* Sources */,
 				28E30B851B56DF61001B246A /* Frameworks */,
 				28E30B861B56DF61001B246A /* Resources */,
 				28E30BB01B56E00A001B246A /* Embed Frameworks */,
 				28EDD9541B5DA6620075A9E9 /* Copy Frameworks */,
+				DBE45F6210E95E520DA58D21 /* Embed Pods Frameworks */,
+				81E042569A14EA3349D1463D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				28EDD9531B5DA6590075A9E9 /* PBXTargetDependency */,
-				28EDD9CE1B5F7CB90075A9E9 /* PBXTargetDependency */,
 			);
 			name = "Crave App";
 			productName = "Crave App";
@@ -390,16 +329,6 @@
 			mainGroup = 28E30B7F1B56DF61001B246A;
 			productRefGroup = 28E30B891B56DF61001B246A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 28EDD9BD1B5F7BD30075A9E9 /* Products */;
-					ProjectRef = 28EDD9BC1B5F7BD30075A9E9 /* Alamofire.xcodeproj */;
-				},
-				{
-					ProductGroup = 28EDD9491B5DA5980075A9E9 /* Products */;
-					ProjectRef = 28EDD9481B5DA5980075A9E9 /* Quadrat.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				28E30B871B56DF61001B246A /* Crave App */,
@@ -407,51 +336,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		28EDD94E1B5DA5980075A9E9 /* Quadrat.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Quadrat.framework;
-			remoteRef = 28EDD94D1B5DA5980075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28EDD9501B5DA5980075A9E9 /* QuadratTouch.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = QuadratTouch.framework;
-			remoteRef = 28EDD94F1B5DA5980075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28EDD9C41B5F7BD30075A9E9 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 28EDD9C31B5F7BD30075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28EDD9C61B5F7BD30075A9E9 /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 28EDD9C51B5F7BD30075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28EDD9C81B5F7BD30075A9E9 /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = 28EDD9C71B5F7BD30075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28EDD9CA1B5F7BD30075A9E9 /* Alamofire OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
-			remoteRef = 28EDD9C91B5F7BD30075A9E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		28E30B861B56DF61001B246A /* Resources */ = {
@@ -472,6 +356,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81E042569A14EA3349D1463D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crave App/Pods-Crave App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2797FB0556749607D96A595 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBE45F6210E95E520DA58D21 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crave App/Pods-Crave App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28E30B841B56DF61001B246A /* Sources */ = {
@@ -508,16 +440,6 @@
 			isa = PBXTargetDependency;
 			target = 28E30B871B56DF61001B246A /* Crave App */;
 			targetProxy = 28E30B9E1B56DF61001B246A /* PBXContainerItemProxy */;
-		};
-		28EDD9531B5DA6590075A9E9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = QuadratTouch;
-			targetProxy = 28EDD9521B5DA6590075A9E9 /* PBXContainerItemProxy */;
-		};
-		28EDD9CE1B5F7CB90075A9E9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 28EDD9CD1B5F7CB90075A9E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -626,6 +548,7 @@
 		};
 		28E30BA81B56DF61001B246A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 898703216405F783F485EF31 /* Pods-Crave App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -640,6 +563,7 @@
 		};
 		28E30BA91B56DF61001B246A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A704ADB18D561E3151CF68 /* Pods-Crave App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
