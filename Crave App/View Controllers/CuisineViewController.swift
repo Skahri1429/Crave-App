@@ -10,6 +10,11 @@ import UIKit
 
 class CuisineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    // Get basic cuisines. Get recommended "explore" functionality from Foursquare. 
+    
+    // Best indian food in the area type of thing. FS definitely has something like that.
+    
+    // Kind of the same thing as the Plate but not as encapsulated. 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!

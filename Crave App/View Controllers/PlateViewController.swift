@@ -32,7 +32,6 @@ class PlateViewController: UITableViewController, UITableViewDataSource, CLLocat
         self.tableView.dataSource = self
         self.tableView.delegate = self
 
-
         numberFormatter.numberStyle = .DecimalStyle
         
         session = Session.sharedSession()
@@ -47,12 +46,43 @@ class PlateViewController: UITableViewController, UITableViewDataSource, CLLocat
         tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+        
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.delegate = self
+        let status = CLLocationManager.authorizationStatus()
+        if status == .NotDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else if status == CLAuthorizationStatus.AuthorizedWhenInUse
+            || status == CLAuthorizationStatus.AuthorizedAlways {
+                locationManager.startUpdatingLocation()
+        } else {
+            showNoPermissionsAlert()
+        }
+
         // Do any additional setup after loading the view.
     }
+    
+    func showNoPermissionsAlert() {
+        let alertController = UIAlertController(title: "No permission", message: "In order to work, app needs your location", preferredStyle: .Alert)
+        let openSettings = UIAlertAction(title: "Open settings", style: .Default, handler: {
+            (action) -> Void in
+            let URL = NSURL(string: UIApplicationOpenSettingsURLString)
+            UIApplication.sharedApplication().openURL(URL!)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        alertController.addAction(openSettings)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
     
     func searchTableViewController(controller: SearchTableViewController, didSelectVenue venue:JSONParameters) {
         println("now conforms to protocol")
     }
+    
+
 
     /*
     // MARK: - Navigation

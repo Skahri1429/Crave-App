@@ -10,6 +10,8 @@
 	<string>Crave App</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
+		<string>https://github.com/Alamofire/Alamofire.git</string>
 		<key>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</key>
 		<string>https://github.com/Skahri1429/Crave-App.git</string>
 		<key>C333CCA42B76DAB308C436958D3D72C5B6ACE147</key>
@@ -19,6 +21,8 @@
 	<string>Crave App.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
+		<string>../../AlamoFire/</string>
 		<key>7EC7BBCBCB7F3D3952AC1E85CA402F1C908657A0</key>
 		<string>../..</string>
 		<key>C333CCA42B76DAB308C436958D3D72C5B6ACE147</key>
@@ -39,6 +43,14 @@
 			<string>C333CCA42B76DAB308C436958D3D72C5B6ACE147</string>
 			<key>IDESourceControlWCCName</key>
 			<string>4sq</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67620B5EFA902936DF04070AF595B76AB0333747</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AlamoFire</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
