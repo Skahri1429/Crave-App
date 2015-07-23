@@ -5,6 +5,7 @@ use_frameworks!
 target 'Crave App' do
      pod 'SwiftyJSON', '~> 2.2.0'
     pod 'Alamofire', '~> 1.2'
+	pod 'Firebase', '>= 2.3.3'
 end
 
 
