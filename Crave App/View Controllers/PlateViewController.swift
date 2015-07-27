@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import CoreLocation
+
 
 import QuadratTouch
 
-class PlateViewController: UITableViewController, UITableViewDataSource, CLLocationManagerDelegate, SearchTableViewControllerDelegate, SessionAuthorizationDelegate {
+class PlateViewController: UITableViewController, UITableViewDataSource, SearchTableViewControllerDelegate, SessionAuthorizationDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -22,7 +22,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, CLLocat
     var resultsTableViewController: SearchTableViewController!
     
     var session : Session!
-    var locationManager : CLLocationManager!
+
     var venueItems : [[String: AnyObject]]?
     
     let numberFormatter = NSNumberFormatter()
@@ -50,35 +50,9 @@ class PlateViewController: UITableViewController, UITableViewDataSource, CLLocat
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
-        
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.delegate = self
-        let status = CLLocationManager.authorizationStatus()
-        if status == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        } else if status == CLAuthorizationStatus.AuthorizedWhenInUse
-            || status == CLAuthorizationStatus.AuthorizedAlways {
-                locationManager.startUpdatingLocation()
-        } else {
-            showNoPermissionsAlert()
-        }
-
         // Do any additional setup after loading the view.
     }
     
-    func showNoPermissionsAlert() {
-        let alertController = UIAlertController(title: "No permission", message: "In order to work, app needs your location", preferredStyle: .Alert)
-        let openSettings = UIAlertAction(title: "Open settings", style: .Default, handler: {
-            (action) -> Void in
-            let URL = NSURL(string: UIApplicationOpenSettingsURLString)
-            UIApplication.sharedApplication().openURL(URL!)
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        alertController.addAction(openSettings)
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-
     
     func searchTableViewController(controller: SearchTableViewController, didSelectVenue venue:JSONParameters) {
         println("now conforms to protocol")
@@ -125,27 +99,4 @@ extension PlateViewController: UITableViewDelegate {
         //timelineComponent.targetWillDisplayEntry(indexPath.row)
     }
     
-}
-
-extension CLLocation { //necessary for parameters
-    func parameters() -> Parameters {
-        let ll      = "\(self.coordinate.latitude),\(self.coordinate.longitude)"
-        let llAcc   = "\(self.horizontalAccuracy)"
-        let alt     = "\(self.altitude)"
-        let altAcc  = "\(self.verticalAccuracy)"
-        let parameters = [
-            Parameter.ll:ll,
-            Parameter.llAcc:llAcc,
-            Parameter.alt:alt,
-            Parameter.altAcc:altAcc
-        ]
-        return parameters
-    }
-}
-
-
-class Storyboard: UIStoryboard { //necessary for Storyboard creation
-    class func create(name: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(name) as! UIViewController
-    }
 }

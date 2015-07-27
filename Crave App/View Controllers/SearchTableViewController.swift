@@ -33,24 +33,24 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         // Strip out all the leading and trailing spaces.
-        let whitespaceCharacterSet = NSCharacterSet.whitespaceCharacterSet()
-        let strippedString = searchController.searchBar.text.stringByTrimmingCharactersInSet(whitespaceCharacterSet)
-        
-        if self.location == nil {
-            return
-        }
-        
-        currentTask?.cancel()
-        var parameters = [Parameter.query:strippedString]
-        parameters += self.location.parameters()
-        currentTask = session.venues.search(parameters) {
-            (result) -> Void in
-            if let response = result.response {
-                self.venues = response["venues"] as? [JSONParameters]
-                self.tableView.reloadData()
-            }
-        }
-        currentTask?.start()
+//        let whitespaceCharacterSet = NSCharacterSet.whitespaceCharacterSet()
+//        let strippedString = searchController.searchBar.text.stringByTrimmingCharactersInSet(whitespaceCharacterSet)
+//        
+//        if self.location == nil {
+//            return
+//        }
+//        
+//        currentTask?.cancel()
+//        var parameters = [Parameter.query:strippedString]
+//        parameters += self.location.parameters()
+//        currentTask = session.venues.search(parameters) {
+//            (result) -> Void in
+//            if let response = result.response {
+//                self.venues = response["venues"] as? [JSONParameters]
+//                self.tableView.reloadData()
+//            }
+//        }
+//        currentTask?.start()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

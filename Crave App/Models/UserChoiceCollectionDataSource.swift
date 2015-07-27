@@ -16,17 +16,19 @@ import SwiftyJSON
 typealias JSONParameters = [String: AnyObject]
 
 class UserChoiceCollectionDataSource: PlateViewController {
-    
-    var location: CLLocation!
     var venues: [JSONParameters]!
+    let tagData = TagData()
+    var tagArray: [String] = TagData.returnReleventTags()
+    let WALKING_DISTANCE = 1000
+    let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
+    let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU&ll"
     
-    override func viewDidLoad() {
-        //locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-    }
+    let longitude = LocationHelper().latitude
+    let latitude = LocationHelper().longitude
     
-    func search(searchQuery: String) {
+    var venueNamesArray: [String] = []
+    
+   /* func search(searchQuery: String) { // what is this for?
         var parameters = [Parameter.query: searchQuery]
         parameters += self.location.parameters()
         let searchTask = self.session.venues.search(parameters) {
@@ -38,7 +40,7 @@ class UserChoiceCollectionDataSource: PlateViewController {
         }
         searchTask.start()
     }
-    
+    */
     /**
     Get user location (check)
     Handle onboarding later, assume they have some history right now
@@ -61,26 +63,77 @@ class UserChoiceCollectionDataSource: PlateViewController {
     
     **/
     
+    //FOR ONBOARDING PROCESS: HAVE USERS GO THROUGH THE FOOD/RESTAURANT CATEGORIES. FOOD TRUCKS, ETC.
+    
+    
     //get user tags to conduct search based on previous history
     //need to conduct 2 searches: one to find venues, filter them out by distance (e.g. <5 miles away)
     //from that list you need to order by cuisine type (find out which one they eat most)
     //
     
-    func conductSearch(relevantSearchTerms: TagData) -> [String] {
-        let jsonFile: String!
-        Alamofire.request(.GET, "https://api.foursquare.com/v2/venues/search?client_id=GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY&client_secret=KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU&ll=40.7,-74&query=\(relevantSearchTerms)&v=20140806&m=foursquare")
-            .responseJSON { _, _, JSON, _ in
-                jsonFile = JSON
-        }
-        if let json = jsonFile["response"]["venues"][0]["im:name"]["label"].string {
-            println("SwiftyJSON: \(appName)")
-        }
-        return ["stuff"]
-        
-        /*
 
+    func processJSON(json: String) -> String {
+        let initialRequest = JSON(json)
+        var temporaryArray: [JSON] = initialRequest["response"]["venues"]["name"].arrayValue
         
+        for venueName in temporaryArray {
+            venueNamesArray.append(venueName.stringValue)
+        }
+        println(venueNamesArray)
+        
+        return ""
     }
     
-    func conductSearch() {}
+    func findVenues(long: String, lat:String, relevantSearchTerms: [String]) -> [String] { //complete. must test. link doesn't work.
+
+        var jsonResponse: String!
+        for tag in tagArray { // searching each tag using search term
+            
+            
+            // how do i search by multiple categories with the URL? What URL do I use??
+            Alamofire.request(.GET, "https://api.foursquare.com/v2/venues/search?ll=\(long),\(lat)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150725").responseJSON {(request, response, JSON, error) in
+                println(request)
+                println(response)
+                
+                jsonResponse = JSON as! String
+                
+                if (error == nil) {
+                    self.processJSON(jsonResponse)
+                }
+                
+//                var json = JSON as! NSDictionary
+//                
+//                jsonFile += json
+            }
+        }
+        return venueNamesArray
+    }
+    
+    func sortVenues() {
+        let tags = TagData()
+//        let initialVenueArray = findVenues(tags)
+        
+        /* 
+            first filter by walking distance
+        
+        */
+        
+        
+            // foursquare has categories to which each venue subscribes, use that to filter out
+        //foursquare has categories to which everything is a part of. you can onboard users using that categories to find out what they like.
+        // USE SUGGESTCOMPLETION OR CATEGORIES FOR THIS PART.
+        //from there you can filter out by suggested countries, so using user location, if one suggestion is recommended for their country and others have no recommendation, push that to the top.
+        
+        //return some sort of collection, like an array, of venues that you can search. return like 5.
+    }
+
+    func findMeals() {
+        //this is where your TagData comes in. Use the results from sortVenues() to
+    }
+    
+    func sortMeals() {
+        //eliminate any foods based on dietary restrictions
+        //sort based on distance from user, and number of tags that it hits. 
+        //if there are less than five returned, then you might want to handle that. maybe pick something from the saved options. but that's for a later date.
+    }
 }
