@@ -32,16 +32,16 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         NSLog("didUpdateToLocation: %@", newLocation)
         var currentLocation: CLLocation? = newLocation
-        if let location = currentLocation {
-            self.longitude = String(stringInterpolationSegment: location.coordinate.longitude)
-            self.latitude = String(stringInterpolationSegment: location.coordinate.latitude)
-        }
+        
         locationManager.stopUpdatingLocation()
     }
     
     override init() {
+        super.init()
+        self.setupLocation()
         let lat = self.latitude
         let long = self.longitude
+        let loc = self.locationManager.location
     }
 
 }

@@ -14,6 +14,7 @@
 		2803B91E1B5C763600CBAC87 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B91D1B5C763600CBAC87 /* libz.dylib */; };
 		2803B91F1B5C769100CBAC87 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; };
 		2803B9201B5C769100CBAC87 /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2811ABAA1B676D9E0065E039 /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2811ABA91B676D9E0065E039 /* MealObject.swift */; };
 		289C423D1B645C5C00D6E57E /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 289C423A1B645C3A00D6E57E /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		289C423F1B646C6F00D6E57E /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C423E1B646C6F00D6E57E /* LocationHelper.swift */; };
 		289C42411B646EDB00D6E57E /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C42401B646EDB00D6E57E /* Storyboard.swift */; };
@@ -104,6 +105,7 @@
 		2803B9191B5C762200CBAC87 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		2803B91B1B5C762D00CBAC87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2803B91D1B5C763600CBAC87 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2811ABA91B676D9E0065E039 /* MealObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealObject.swift; sourceTree = "<group>"; };
 		289C42321B645C3900D6E57E /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "Quadrat/das-quadrat-develop/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
 		289C423E1B646C6F00D6E57E /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		289C42401B646EDB00D6E57E /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */,
 				289C423E1B646C6F00D6E57E /* LocationHelper.swift */,
 				289C42401B646EDB00D6E57E /* Storyboard.swift */,
+				2811ABA91B676D9E0065E039 /* MealObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */,
 				28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */,
 				28EDD98D1B5F356A0075A9E9 /* SearchViewController.swift in Sources */,
+				2811ABAA1B676D9E0065E039 /* MealObject.swift in Sources */,
 				289C423F1B646C6F00D6E57E /* LocationHelper.swift in Sources */,
 				28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */,
 				28EDD95B1B5EC95B0075A9E9 /* SearchTableViewController.swift in Sources */,
@@ -622,6 +626,7 @@
 			baseConfigurationReference = 898703216405F783F485EF31 /* Pods-Crave App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sarthak Khillon (2437A3M333)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -637,6 +642,7 @@
 			baseConfigurationReference = 42A704ADB18D561E3151CF68 /* Pods-Crave App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sarthak Khillon (2437A3M333)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

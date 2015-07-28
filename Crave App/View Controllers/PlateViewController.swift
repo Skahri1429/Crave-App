@@ -15,8 +15,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, SearchT
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var foodImage: UIImageView!
-    @IBOutlet weak var searchBar: UISearchBar!
+
     
     var searchController: UISearchController!
     var resultsTableViewController: SearchTableViewController!
@@ -39,17 +38,19 @@ class PlateViewController: UITableViewController, UITableViewDataSource, SearchT
         session = Session.sharedSession()
         session.logger = ConsoleLogger()
         
-        resultsTableViewController = Storyboard.create("venueSearch") as! SearchTableViewController
-        resultsTableViewController.session = session
-        resultsTableViewController.delegate = self
-        searchController = UISearchController(searchResultsController: resultsTableViewController)
-        searchController.searchResultsUpdater = resultsTableViewController
-        searchController.searchBar.sizeToFit()
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
+//        resultsTableViewController = Storyboard.create("venueSearch") as! SearchTableViewController
+//        resultsTableViewController.session = session
+//        resultsTableViewController.delegate = self
+//        searchController = UISearchController(searchResultsController: resultsTableViewController)
+//        searchController.searchResultsUpdater = resultsTableViewController
+//        searchController.searchBar.sizeToFit()
+//        tableView.tableHeaderView = searchController.searchBar
+//        definesPresentationContext = true
+//        
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 200
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        UserChoiceCollectionDataSource().findVenues()
         // Do any additional setup after loading the view.
     }
     
