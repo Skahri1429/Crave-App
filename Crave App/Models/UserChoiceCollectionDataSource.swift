@@ -44,7 +44,7 @@ class UserChoiceCollectionDataSource {
         for tag in tagArray { // searching each tag using search term
             
             var parameters = [Parameter.categoryId: tag]
-            parameters += self.location.parameters() // error: location is nil
+            parameters += self.location.parameters() // error: location is optional, now nil
             let searchTask = session.venues.search(parameters) {
                 (result) -> Void in
                 
