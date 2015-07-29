@@ -34,7 +34,7 @@ class UserChoiceCollectionDataSource {
     
     let client: Client!
    
-    func findVenues(callback: Dictionary<String, Int> -> Void)  { //complete. must test. link doesn't work.
+    func findVenues(callback: [String: Int] -> Void)  { //complete. must test. link doesn't work.
             // where would i call this function? in view controller. call all other methods inside this. will return 
         var jsonResponse: String!
         
@@ -44,13 +44,12 @@ class UserChoiceCollectionDataSource {
                 (result) -> Void in
                 
                 if let response = result.response { //trying to create keys of names with values of distances
-                    let venueName: String = response["venues"]["name"]
-                    let distanceValue: Int = response["venues"]["location"]["distance"]
-                    for (key, value) in response {
-                        //  self.venueNamesDictionary[key] = value as! String
-                        println(key)
-                        println(value)
-                        
+                    let count: Int? = response["venues"].array?.count
+                    let venueName: [String] = response["venues"]["name"].arrayValue
+                    let distanceValue: [Int] = response["venues"]["location"]["distance"].arrayValue
+                    
+                    for (i = 0; i < count; i++) {
+                        venueNamesDictionary[venueName[i]] = distanceValue[i]
                     }
                     
                 } //end if-let
@@ -61,26 +60,6 @@ class UserChoiceCollectionDataSource {
         }// end for
         
     }// end Function
-                
-//                    for (var j = 0; j<response.count; j++) { //trying to assign distances from user to venue with meal
-//                        let dist = response["venues"][j]["location"]["distance"]! as [JSONParameters]!
-//                        let venues = response["venues"] as! [AnyObject]
-//                        let temp = venues[j] as! [AnyObject]
-//                        let loc = temp["location"] as! [AnyObject]
-//                        
-//                        self.distance = response["venues"][j]["location"]["distance"]! as [JSONParameters]
-//                    }
-//                    self.self.venueNamesDictionary[self.venues as String] = distance
-                    
-                    //self.tableView.reloadData()
-                
-            
-            
-            
-       
-        
-        
-
     
 //    func filterVenues(namesArray: [String]) -> [String] {
 //        //get closest choice for each category ID.
