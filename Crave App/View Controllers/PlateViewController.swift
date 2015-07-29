@@ -41,7 +41,6 @@ class PlateViewController: UITableViewController, UITableViewDataSource, SearchT
         session = Session.sharedSession()
         session.logger = ConsoleLogger()
         
-        userChoice.findVenues()
         // Do any additional setup after loading the view.
     }
     

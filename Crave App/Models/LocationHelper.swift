@@ -13,6 +13,10 @@ import QuadratTouch
 class LocationHelper: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
+    let coordinate = CLLocationDegrees()
+    let longitude: CLLocationDegrees!
+    let latitude: CLLocationDegrees!
+    var locValue: CLLocationCoordinate2D!
 
     func setupLocation() {
         locationManager = CLLocationManager()
@@ -25,52 +29,16 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
             || status == CLAuthorizationStatus.AuthorizedAlways {
                 locationManager.startUpdatingLocation()
         } else {
-            showNoPermissionsAlert()
-        }
-    }
-    func showNoPermissionsAlert() {
-        let alertController = UIAlertController(title: "No permission", message: "In order to work, app needs your location", preferredStyle: .Alert)
-        let openSettings = UIAlertAction(title: "Open settings", style: .Default, handler: {
-            (action) -> Void in
-            let URL = NSURL(string: UIApplicationOpenSettingsURLString)
-            UIApplication.sharedApplication().openURL(URL!)
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        alertController.addAction(openSettings)
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func showErrorAlert(error: NSError) {
-        let alertController = UIAlertController(title: "Error", message:error.localizedDescription, preferredStyle: .Alert)
-        let okAction = UIAlertAction(title: "Ok", style: .Default, handler: {
-            (action) -> Void in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-        alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .Denied || status == .Restricted {
-            showNoPermissionsAlert()
-        } else {
-            locationManager.startUpdatingLocation()
+            println("No permissions")
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        // Process error.
-        // kCLErrorDomain. Not localized.
-        showErrorAlert(error)
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        if venueItems == nil {
-            exploreVenues()
-        }
-        resultsTableViewController.location = newLocation
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locationManager.stopUpdatingLocation()
+        locValue = locationManager.location.coordinate
+        //println("locations = \(locValue.latitude) \(locValue.longitude)")
     }
+
     
 //    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
 //        NSLog("didFailWithError: %@", error)
@@ -88,6 +56,8 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         self.setupLocation()
+        longitude = self.locValue.longitude
+        latitude = self.locValue.latitude
     }
 
 }

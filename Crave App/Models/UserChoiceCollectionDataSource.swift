@@ -23,6 +23,12 @@ class UserChoiceCollectionDataSource {
     let tagData = TagData()
     var categoryTagSearch: [String] = TagData.returnRelevantCategories()
     
+    lazy var numElements: Int = {
+        
+    return self.categoryTagSearch.count
+}()
+    var counter = 0
+    
     let WALKING_DISTANCE = 1000
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU&ll"
@@ -30,62 +36,105 @@ class UserChoiceCollectionDataSource {
     let locationManager = LocationHelper()
     
     var venueNamesDictionary: [String: Int] = [:] //name : distance from user
-    var finishedVenueNamesArray: [String: Int] = [:]
+    var finishedVenueNamesArray: [String] = []
     
-    let client: Client!
+   let client: Client!
    
-    func findVenues(callback: [String: Int] -> Void)  { //complete. must test. link doesn't work.
-            // where would i call this function? in view controller. call all other methods inside this. will return 
-        var jsonResponse: String!
+    func findVenues() -> [String] { //complete. must test. link doesn't work.
+            // where would i call this function? in view controller. call all other methods inside this. will return
+        let longitude = locationManager.longitude
+        let latitude = locationManager.latitude
         
-        for tag in categoryTagSearch {
+        if counter == numElements {
+            let tempSortedNames = sortVenues(venueNamesDictionary)
+            finishedVenueNamesArray = filterVenues(tempSortedNames)
+        } else {
+        
+           for tag in categoryTagSearch {
             
-            let searchTask = session.venues.search(tag) {
-                (result) -> Void in
-                
-                if let response = result.response { //trying to create keys of names with values of distances
-                    let count: Int? = response["venues"].array?.count
-                    let venueName: [String] = response["venues"]["name"].arrayValue
-                    let distanceValue: [Int] = response["venues"]["location"]["distance"].arrayValue
+            let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
+            
+            if let url = NSURL(string: urlString) {
+                if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
+                    let json = JSON(data: data)
+                    if json["meta"]["code"].intValue == 200 {
+                        // we're OK to parse!
+                        for result in json["response"].arrayValue {
+                            venueNamesDictionary[result["venues"]["name"].stringValue] = result["venues"]["location"]["distance"].int
+                            counter++
+                        }
                     
-                    for (i = 0; i < count; i++) {
-                        venueNamesDictionary[venueName[i]] = distanceValue[i]
+                    } else {
+                        println("Error in retrieving JSON")
                     }
                     
-                } //end if-let
-            } // end searchtask assignment
+                    
+                }
+            }
             
-            callback(searchTask.start())
+//            let searchTask = session.venues.search(tag) {
+//                (result) -> QuadratTouch.Task in
+//                
+//                if let response = result.response { //trying to create keys of names with values of distances
+//                    let count: Int? = response["venues"].array?.count
+//                    let venueName: [String] = response["venues"]["name"].arrayValue
+//                    let distanceValue: [Int] = response["venues"]["location"]["distance"].arrayValue
+//                    
+//                    for (i = 0; i < count; i++) {
+//                        venueNamesDictionary[venueName[i]] = distanceValue[i]
+//                    }
+//                }
+//                
+//            }// end closure
+//            
+//            searchTask.start()
+//            
+//            counter++
             
-        }// end for
+            }// end for
+        }// end else
+        
+        return finishedVenueNamesArray
         
     }// end Function
     
-//    func filterVenues(namesArray: [String]) -> [String] {
-//        //get closest choice for each category ID.
-//        //return array of closest venue names for each category ID
-//    }
     
-    func sortVenues(filteredNamesDictionary: [String: Int]) {
-        //now sort by user taste. dictionary 1 or 0 from TagData.
-        let names = filteredNamesDictionary
-        let tempArray: [String] = []
+    func sortVenues(filteredNamesDictionary: [String: Int]) -> [String] {
+        //now sort by distance. dictionary 1 or 0 from TagData.
+        let codeValueDict = filteredNamesDictionary
+        let sortedKeysAndValues = sorted(codeValueDict) { $0.1 < $1.1 } //sorted dictionary
+        let keys = sortedKeysAndValues.map {$0.0 } // names sorting complete
+        let values = sortedKeysAndValues.map {$0.1 } // distances sorting complete
+        let sortedNamesArray = keys
+        return sortedNamesArray
+    }
+    
+    func filterVenues(namesArray: [String]) -> [String] {
+    //get closest choice for each category ID.
+    //return array of closest venue names for each category ID
         
-        for (key, value) in names {
-            //tempArray.append(key)
+        //or could just truncate.
+        let truncatedNamesArray: [String]!
+        for(var i = 0; i<15; i++) {
+            truncatedNamesArray[i] = namesArray[i]
         }
         
+        //THIS IS WHAT HAPPENS WHEN YOU DON'T PLAN AHEAD!
+//        //for each tag
+//        for tag in categoryTagSearch {
+//            //search through names
+//        }
         
+        return truncatedNamesArray
+   }
 
-    }
-
-    func findMeals() { //REUSABLE IN CHOOSEVIEWCONTROLLER
+    func findMeals(venueNamesArray: [String]) { //REUSABLE IN CHOOSEVIEWCONTROLLER
         //this is where your TagData comes in. Use the filtered, sorted array to find meals for each venue element in array
         //parse descriptions of each menu item.
         //get a counter for number of ingredients matched (TO WHAT? Are you finding common ingredients in onboarding process?)
         //sort by counter, highest to lowest.
         
-        //return top 5 meals.
+        //return top 5 mealxs.
     }
     
     func sortMeals() { //currently unnecessary
