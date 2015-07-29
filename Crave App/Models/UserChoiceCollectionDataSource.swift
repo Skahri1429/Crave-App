@@ -21,40 +21,47 @@ class UserChoiceCollectionDataSource {
     var session : Session!
     
     let tagData = TagData()
-    var tagArray: [String] = TagData.returnReleventTags()
+    var categoryTagSearch: [String] = TagData.returnRelevantCategories()
     
     let WALKING_DISTANCE = 1000
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU&ll"
     
-    let longitude = LocationHelper().latitude
-    let latitude = LocationHelper().longitude
-    let location = LocationHelper().locationManager.location
+    let locationManager = LocationHelper()
     
     var venueNamesDictionary: [String: Int] = [:] //name : distance from user
     var finishedVenueNamesArray: [String: Int] = [:]
     
     let client: Client!
-    
-
    
-    func findVenues( )  { //complete. must test. link doesn't work.
+    func findVenues(callback: Dictionary<String, Int> -> Void)  { //complete. must test. link doesn't work.
             // where would i call this function? in view controller. call all other methods inside this. will return 
         var jsonResponse: String!
-        for tag in tagArray { // searching each tag using search term
+        
+        for tag in categoryTagSearch {
             
-            var parameters = [Parameter.categoryId: tag]
-            parameters += self.location.parameters() // error: location is optional, now nil
-            let searchTask = session.venues.search(parameters) {
+            let searchTask = session.venues.search(tag) {
                 (result) -> Void in
                 
-                if let response = result.response { //trying to create keys of names
+                if let response = result.response { //trying to create keys of names with values of distances
+                    let venueName: String = response["venues"]["name"]
+                    let distanceValue: Int = response["venues"]["location"]["distance"]
                     for (key, value) in response {
-                      //  self.venueNamesDictionary[key] = value as! String
+                        //  self.venueNamesDictionary[key] = value as! String
                         println(key)
                         println(value)
-                    
+                        
                     }
+                    
+                } //end if-let
+            } // end searchtask assignment
+            
+            callback(searchTask.start())
+            
+        }// end for
+        
+    }// end Function
+                
 //                    for (var j = 0; j<response.count; j++) { //trying to assign distances from user to venue with meal
 //                        let dist = response["venues"][j]["location"]["distance"]! as [JSONParameters]!
 //                        let venues = response["venues"] as! [AnyObject]
@@ -66,14 +73,14 @@ class UserChoiceCollectionDataSource {
 //                    self.self.venueNamesDictionary[self.venues as String] = distance
                     
                     //self.tableView.reloadData()
-                }
-            }
-            searchTask.start()
+                
             
-        }// end for
+            
+            
+       
         
         
-    }// end Function
+
     
 //    func filterVenues(namesArray: [String]) -> [String] {
 //        //get closest choice for each category ID.

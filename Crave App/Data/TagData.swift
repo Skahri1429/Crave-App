@@ -24,7 +24,7 @@ struct TagData {
     var relevantUserTags: [String] = []
     var unorderedRelevantUserTags: [String] = []
     
-    static func returnReleventTags() -> [String]{
+    static func returnRelevantCategories() -> [String]{
         for(key, value) in sharedTagData.allRestaurantCategoryIDs {
             if value > 0 {
                 sharedTagData.unorderedRelevantUserTags.append(key as String)

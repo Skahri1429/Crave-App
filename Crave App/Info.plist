@@ -43,8 +43,8 @@
 			<string>cravefoodfinder://foursquare</string>
 		</dict>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location data is necessary to find venues around you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find food near you!</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
