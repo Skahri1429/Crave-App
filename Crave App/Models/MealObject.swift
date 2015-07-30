@@ -21,3 +21,4 @@ class MealObject: NSObject {
     // hours of venue
     
 }
+ 

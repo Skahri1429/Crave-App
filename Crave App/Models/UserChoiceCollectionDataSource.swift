@@ -35,8 +35,8 @@ class UserChoiceCollectionDataSource {
     
     let locationManager = LocationHelper()
     
-    var venueNamesDictionary: [String: Int] = [:] //name : distance from user
-    var finishedVenueNamesArray: [String] = []
+    var venueNamesDictionary: [String: (Int, String)] = [:] //name : (distance from user, venueID)
+    var finishedVenueNamesDictiontary: [String: String] = [:] //name: venueID
     
    let client: Client!
    
@@ -47,7 +47,8 @@ class UserChoiceCollectionDataSource {
         
         if counter == numElements {
             let tempSortedNames = sortVenues(venueNamesDictionary)
-            finishedVenueNamesArray = filterVenues(tempSortedNames)
+            finishedVenueNamesDictiontary = filterVenues(tempSortedNames)
+            
         } else {
         
            for tag in categoryTagSearch {
@@ -60,7 +61,7 @@ class UserChoiceCollectionDataSource {
                     if json["meta"]["code"].intValue == 200 {
                         // we're OK to parse!
                         for result in json["response"].arrayValue {
-                            venueNamesDictionary[result["venues"]["name"].stringValue] = result["venues"]["location"]["distance"].int
+                            venueNamesDictionary[result["venues"]["name"].stringValue] = (distance: result["venues"]["location"]["distance"].int!, id: result["venues"]["id"].stringValue)
                             counter++
                         }
                     
@@ -99,17 +100,20 @@ class UserChoiceCollectionDataSource {
     }// end Function
     
     
-    func sortVenues(filteredNamesDictionary: [String: Int]) -> [String] {
+    func sortVenues(filteredNamesDictionary: [String: (Int, String)]) -> [String: Int] {
         //now sort by distance. dictionary 1 or 0 from TagData.
-        let codeValueDict = filteredNamesDictionary
+        for key in filteredNamesDictionary.keys {
+            let codeValueDict[key] = filteredNamesDictionary.values.distance
+        }
         let sortedKeysAndValues = sorted(codeValueDict) { $0.1 < $1.1 } //sorted dictionary
         let keys = sortedKeysAndValues.map {$0.0 } // names sorting complete
         let values = sortedKeysAndValues.map {$0.1 } // distances sorting complete
-        let sortedNamesArray = keys
-        return sortedNamesArray
+        let sortedNamesDictionary = [keys, values]
+        return sortedNamesDictionary
     }
     
-    func filterVenues(namesArray: [String]) -> [String] {
+    
+    func filterVenues(namesDictionary: [String]) -> [String: String] {
     //get closest choice for each category ID.
     //return array of closest venue names for each category ID
         
@@ -128,18 +132,22 @@ class UserChoiceCollectionDataSource {
         return truncatedNamesArray
    }
 
-    func findMeals(venueNamesArray: [String]) { //REUSABLE IN CHOOSEVIEWCONTROLLER
+    func findMeals(venueInfoDictionary: [String: (Int, String)]) { //REUSABLE IN CHOOSEVIEWCONTROLLER
         //this is where your TagData comes in. Use the filtered, sorted array to find meals for each venue element in array
-        //parse descriptions of each menu item.
-        //get a counter for number of ingredients matched (TO WHAT? Are you finding common ingredients in onboarding process?)
-        //sort by counter, highest to lowest.
+        let venuesToSearch = venueInfoDictionary
         
-        //return top 5 mealxs.
+        for menu in venuesToSearch {
+            
+            let urlString =
+        }
+        
+        
+        //return top 5 meals.
     }
     
     func sortMeals() { //currently unnecessary
         //eliminate any foods based on dietary restrictions
-        //sort based on distance from user, and number of tags that it hits. 
+        //sort based on number of tags that it hits.
         //if there are less than five returned, then you might want to handle that. maybe pick something from the saved options. but that's for a later date.
     }
     
