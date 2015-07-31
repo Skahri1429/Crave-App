@@ -53,9 +53,13 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Crave App/Alamofire.framework'
+  install_framework 'Pods-Crave App/Realm.framework'
+  install_framework 'Pods-Crave App/RealmSwift.framework'
   install_framework 'Pods-Crave App/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Crave App/Alamofire.framework'
+  install_framework 'Pods-Crave App/Realm.framework'
+  install_framework 'Pods-Crave App/RealmSwift.framework'
   install_framework 'Pods-Crave App/SwiftyJSON.framework'
 fi

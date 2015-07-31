@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
-class MealObject: NSObject {
+class MealObject: Object {
+    
+    dynamic var mealTitle = ""
+    dynamic var mealDescription = ""
+    dynamic var longitudeOfVenue = ""
+    dynamic var latitudeOfVenue = ""
+    dynamic var distanceToVenue = 0
+    dynamic var addressofVenue = ""
+    dynamic var saved = false
+    dynamic var priceValue: Int = 0
+    dynamic var matchedIngredients = [] // use .count function for sort priority in sortMeals()
+
+
     //TO BE PASSED IN TO FILL OUT TABLE VIEW CELL WITH INFORMATION
     
    // meal image (perform google search)? 

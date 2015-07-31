@@ -8,37 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-Crave App.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>23A96F1CBB963254F3FECB40091CDE88</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>25E0F0AEF3D0FF9A663EBD748DD275FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E2E3C9448DA0B5AB24BFEB8F1A6EC69</key>
+		<key>8CBF801415CD394145492148B107E0B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E09CB414D025820788EE060B8BD1846</key>
+		<key>BE0CED04A2E4E8946E9E6E18DC9555B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD68A453B506E6406699990AB5CED070</key>
 		<dict>
 			<key>primary</key>
 			<true/>
