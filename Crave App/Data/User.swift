@@ -10,5 +10,15 @@ import UIKit
 import RealmSwift
 
 class User: Object {
-   let meals = List<MealObject>()
+    let recommendedMeals: [MealObject] = []
+    
+    let savedMeals: [MealObject] = []
+
+    let relevantCategories: [String] = ["4d4b7105d754a06374d81259"]
+    let ingredientsLiked: [String] = []
+
+        
+    //create enum
+    //case selected
+        //populate with relevant ingredients
 }

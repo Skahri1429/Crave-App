@@ -17,6 +17,60 @@ struct TagData {
         ingredients = self.ingredientArray
         userCategoryFrequency = self.userCategoryFrequency
     }
+    
+    enum FoodCategory {
+        //http://stackoverflow.com/questions/27347396/enum-of-non-literal-values-in-swift
+        case Afghan = "503288ae91d4c4b30a586d67"
+        case African = "4bf58dd8d48988d1c8941735,4bf58dd8d48988d10a941735"
+        case American = "4bf58dd8d48988d14e941735,4bf58dd8d48988d157941735,4bf58dd8d48988d1df931735,4bf58dd8d48988d16c941735,4d4ae6fc7a7b7dea34424761"
+        case Asian = "4bf58dd8d48988d142941735,52e81612bcbc57f1066b7a03,4eb1bd1c3b7b55596b4a748f,52e81612bcbc57f1066b79fb,52af0bd33cf9994f4e043bdd,4bf58dd8d48988d111941735,55a59bace4b013909087cb0c,55a59bace4b013909087cb30,55a59bace4b013909087cb21,55a59bace4b013909087cb06,55a59bace4b013909087cb1b,55a59bace4b013909087cb1e,55a59bace4b013909087cb18,55a59bace4b013909087cb24,55a59bace4b013909087cb15,55a59bace4b013909087cb27,55a59bace4b013909087cb12,55a59bace4b013909087cb2d,55a59a31e4b013909087cb00,55a59af1e4b013909087cb03,55a59bace4b013909087cb2a,55a59bace4b013909087cb0f,55a59bace4b013909087cb33,55a59bace4b013909087cb09,55a59bace4b013909087cb36,4bf58dd8d48988d113941735,4bf58dd8d48988d156941735,4eb1d5724b900d56c88a45fe,4bf58dd8d48988d1d1941735,52af39fb3cf9994f4e043be9,4bf58dd8d48988d14a941735"
+//        case Australian
+//        case Austrian <- in East Euro
+//        case BBQ <- in American
+//        case Belgian
+//        case Bistro
+//        case Brazilian
+//        case Burgers <- in American
+//        case Cajun
+        case Caribbean = "4bf58dd8d48988d144941735"
+//        case Caucasian <-in EastEuro
+       case Chinese = "4bf58dd8d48988d145941735,52af3a5e3cf9994f4e043bea,52af3a723cf9994f4e043bec,52af3a7c3cf9994f4e043bed,52af3a673cf9994f4e043beb,52af3a903cf9994f4e043bee,4bf58dd8d48988d1f5931735,52af3a9f3cf9994f4e043bef,52af3aaa3cf9994f4e043bf0,52af3ab53cf9994f4e043bf1,52af3abe3cf9994f4e043bf2,52af3ac83cf9994f4e043bf3,52af3ad23cf9994f4e043bf4,52af3add3cf9994f4e043bf5,52af3af23cf9994f4e043bf7,52af3ae63cf9994f4e043bf6,52af3afc3cf9994f4e043bf8,52af3b053cf9994f4e043bf9,52af3b213cf9994f4e043bfa,52af3b293cf9994f4e043bfb,52af3b343cf9994f4e043bfc,52af3b3b3cf9994f4e043bfd,52af3b463cf9994f4e043bfe,52af3b633cf9994f4e043c01,52af3b513cf9994f4e043bff,52af3b593cf9994f4e043c00,52af3b6e3cf9994f4e043c02,52af3b773cf9994f4e043c03,52af3b813cf9994f4e043c04,52af3b893cf9994f4e043c05,52af3b913cf9994f4e043c06,52af3b9a3cf9994f4e043c07,52af3ba23cf9994f4e043c08"
+//        case Czech <- in EastEuro
+        case Deli = "4bf58dd8d48988d146941735"
+        case EastEuro = "52e81612bcbc57f1066b7a01,5293a7d53cf9994f4e043a45,52f2ae52bcbc57f1066b8b81,4bf58dd8d48988d109941735,52e928d0bcbc57f1066b7e97,52960bac3cf9994f4e043ac4,52e928d0bcbc57f1066b7e98
+//        case English
+        case Falafel = "4bf58dd8d48988d10b941735"
+//        case FishChips <-in seafood
+//        case Fondue
+        case French = "4bf58dd8d48988d10c941735"
+//        case FriedChicken <-in American
+//        case Gastropub
+        case German = "4bf58dd8d48988d10d941735"
+//        case GlutenFree
+        case Greek = "4bf58dd8d48988d10e941735,53d6c1b0e4b02351e88a83e8,53d6c1b0e4b02351e88a83e2,53d6c1b0e4b02351e88a83d8,53d6c1b0e4b02351e88a83d6,53d6c1b0e4b02351e88a83e6,53d6c1b0e4b02351e88a83e4,53d6c1b0e4b02351e88a83da,53d6c1b0e4b02351e88a83d4,53d6c1b0e4b02351e88a83dc,53d6c1b0e4b02351e88a83e0,52e81612bcbc57f1066b79f3,53d6c1b0e4b02351e88a83d2,53d6c1b0e4b02351e88a83de"
+//        case Halal
+        case Hawaiian = "52e81612bcbc57f1066b79fe"
+//        case Hungarian <- in EastEuro
+        case Indian = "4bf58dd8d48988d10f941735,54135bf5e4b08f3d2429dfe5,54135bf5e4b08f3d2429dff3,54135bf5e4b08f3d2429dff5,54135bf5e4b08f3d2429dfe2,54135bf5e4b08f3d2429dff2,54135bf5e4b08f3d2429dfe1,54135bf5e4b08f3d2429dfe3,54135bf5e4b08f3d2429dfe8,54135bf5e4b08f3d2429dfe9,54135bf5e4b08f3d2429dfe6,54135bf5e4b08f3d2429dfdf,54135bf5e4b08f3d2429dfe4,54135bf5e4b08f3d2429dfe7,54135bf5e4b08f3d2429dfea,54135bf5e4b08f3d2429dfeb,54135bf5e4b08f3d2429dfed,54135bf5e4b08f3d2429dfee,54135bf5e4b08f3d2429dff4,54135bf5e4b08f3d2429dfe0,54135bf5e4b08f3d2429dfdd,54135bf5e4b08f3d2429dff6,54135bf5e4b08f3d2429dfef,54135bf5e4b08f3d2429dff0,54135bf5e4b08f3d2429dff1,54135bf5e4b08f3d2429dfde,54135bf5e4b08f3d2429dfec"
+        case Indonesian = "4deefc054765f83613cdba6f,52960eda3cf9994f4e043ac9,52960eda3cf9994f4e043acb,52960eda3cf9994f4e043aca,52960eda3cf9994f4e043acc,52960eda3cf9994f4e043ac7,52960eda3cf9994f4e043ac8,52960eda3cf9994f4e043ac5,52960eda3cf9994f4e043ac6"
+        case Italian = "4bf58dd8d48988d110941735,55a5a1ebe4b013909087cbb6,55a5a1ebe4b013909087cb7c,55a5a1ebe4b013909087cba7,55a5a1ebe4b013909087cba1,55a5a1ebe4b013909087cba4,55a5a1ebe4b013909087cb95,55a5a1ebe4b013909087cb89,55a5a1ebe4b013909087cb9b,55a5a1ebe4b013909087cb98,55a5a1ebe4b013909087cbbf,55a5a1ebe4b013909087cb79,55a5a1ebe4b013909087cbb0,55a5a1ebe4b013909087cbb3,55a5a1ebe4b013909087cb74,55a5a1ebe4b013909087cbaa,55a5a1ebe4b013909087cb83,55a5a1ebe4b013909087cb77,55a5a1ebe4b013909087cb8c,55a5a1ebe4b013909087cb92,55a5a1ebe4b013909087cb8f,55a5a1ebe4b013909087cb86,55a5a1ebe4b013909087cbb9,55a5a1ebe4b013909087cb7f,55a5a1ebe4b013909087cbbc,55a5a1ebe4b013909087cb9e,55a5a1ebe4b013909087cbc2,55a5a1ebe4b013909087cbad"
+//        case Jewish
+        case Mediterranean = "4bf58dd8d48988d1c0941735,4bf58dd8d48988d1c3941735"
+        case Mexican = "4bf58dd8d48988d1c1941735,4bf58dd8d48988d153941735,4bf58dd8d48988d151941735"
+        case Persian
+        case Pizza
+//        case Polish <- in EastEuro
+//        case Portugeuese
+//        case Russian <- in EastEuro
+        case Seafood = "4bf58dd8d48988d1d2941735,4edd64a0c7ddd24ca188df1a" //contains sushi
+        case Steakhouse
+        case Turkish
+        case Thai = "4bf58dd8d48988d149941735"
+//        case Ukranian <- in EastEuro
+//        case VeggieVegan
+//        case Wings <- in American
+    }
+
     let ingredientArray = ["Abalone", "Absinthe", "Achar", "Ackee", "Adobo", "Advieh", "Agar", "Aioli", "Ajowan", "Ale","Alitame", "Alligator", "Allspice", "Almond", "Alum", "Amaranth", "Amaretti", "Amaretto", "Amla", "Anchovette","Anchovy", "Angelica", "Anise", "Apple", "Apricot", "Aquavit", "Arak", "Arrowroot", "Artichoke", "Arugula", "Asadero", "Asafetida", "Asparagus", "Aspic", "Avocado", "Baba", "Babaco", "Babka", "Bacon", "Bagel", "Bagoong", "Baguette", "Baharat", "Baklava", "Banger", "Banana", "Bannock", "Barberry", "Bard", "Almond Bark", "Barley", "Baron", "Basil", "Bass", "Bean", "Azuki bean", "Beat", "Bechamel", "Beef", "Beer", "Beet", "Bento", "Berbere", "Berry", "Ammonium bicarbonate", "Biltong", "Bisque", "Black bean", "Blackberry", "Beurre blanc", "Blanch", "Bake blind", "Blueberry", "Boerewors", "Boil", "Borage", "Borscht", "Bottarga", "Bouillon", "Bourbon", "Braai", "Braise", "Brandy", "Breadcrumb", "Breadfruit", "Bresaola", "Broccoli", "Broil", "Broth", "Brunoise", "Bruschetta", "Buckwheat", "Balmain Bug", "Apple butter", "Butter", "Almond butter", "Buttermilk", "Cabbage", "Cacao", "Cachaca"]
     
     var userCategoryFrequency: [String: Int] = ["4d4b7105d754a06374d81259": 0, "503288ae91d4c4b30a586d67": 0, "4bf58dd8d48988d1c8941735": 0, "4bf58dd8d48988d10a941735": 0, "4bf58dd8d48988d14e941735": 0, "4bf58dd8d48988d157941735":0, "4bf58dd8d48988d142941735" : 0, "52e81612bcbc57f1066b7a03":0, "4eb1bd1c3b7b55596b4a748f":0, "52e81612bcbc57f1066b79fb" : 0, "52af0bd33cf9994f4e043bdd" : 0, "4bf58dd8d48988d111941735": 0, "55a59bace4b013909087cb0c" : 0, "55a59bace4b013909087cb30" : 0, "55a59bace4b013909087cb21": 0, "55a59bace4b013909087cb06": 0, "55a59bace4b013909087cb1b": 0, "55a59bace4b013909087cb1e": 0, "55a59bace4b013909087cb18": 0, "55a59bace4b013909087cb24": 0, "55a59bace4b013909087cb15": 0, "55a59bace4b013909087cb27": 0, "55a59bace4b013909087cb12": 0, "4bf58dd8d48988d1d2941735": 0, "55a59bace4b013909087cb2d": 0, "55a59a31e4b013909087cb00": 0, "55a59af1e4b013909087cb03": 0, "55a59bace4b013909087cb2a": 0, "55a59bace4b013909087cb0f": 0, "55a59bace4b013909087cb33": 0, "55a59bace4b013909087cb09": 0, "55a59bace4b013909087cb36": 0, "4bf58dd8d48988d113941735": 0, "4bf58dd8d48988d156941735": 0, "4eb1d5724b900d56c88a45fe": 0, "4bf58dd8d48988d1d1941735": 0, "4bf58dd8d48988d149941735": 0, "52af39fb3cf9994f4e043be9": 0, "4bf58dd8d48988d14a941735": 0, "4bf58dd8d48988d169941735": 0, "52e81612bcbc57f1066b7a01": 0, "4bf58dd8d48988d1df931735": 0, "4bf58dd8d48988d179941735": 0, "4bf58dd8d48988d16a941735": 0, "52e81612bcbc57f1066b7a02": 0, "52e81612bcbc57f1066b79f1": 0]

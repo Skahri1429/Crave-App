@@ -1,14 +1,14 @@
 //
-//  SearchViewController.swift
+//  ResultsViewController.swift
 //  Crave App
 //
-//  Created by Pankaj Khillon on 7/21/15.
+//  Created by Pankaj Khillon on 7/31/15.
 //  Copyright (c) 2015 Sarthak Khillon. All rights reserved.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class ResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

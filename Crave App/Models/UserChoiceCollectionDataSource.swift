@@ -23,9 +23,12 @@ class UserChoiceCollectionDataSource {
     let tagData = TagData()
     var categoryTagSearch: [String] = TagData.returnRelevantCategories()
     let ingredientData: [String] = tagData.ingredients
+    let 
     
     let mealObject = MealObject()
     let foundMeals: [mealObject] = []
+    
+    let currentUser = User()
     
     lazy var numElements: Int = {
         
@@ -211,6 +214,7 @@ class UserChoiceCollectionDataSource {
             for ingredient in ingredientData {
                 for word in trimmedWordsArray {
                     if word == ingredient {
+                        mealItem.relevantMatchedIngredients.append(ingredient)
                         
                     }
                 }
@@ -218,10 +222,30 @@ class UserChoiceCollectionDataSource {
         }
     }
     
-    func sortMeals() { //currently unnecessary
-        //eliminate any foods based on dietary restrictions
-        //sort based on number of tags that it hits.
-        //if there are less than five returned, then you might want to handle that. maybe pick something from the saved options. but that's for a later date.
+    func sortMeals(meals: [MealObject]) { //currently unnecessary
+
+        let mealObjectArray = meals
+        
+        for meal in mealObjectArray {
+            
+        }
+        
+        for key in mealObjectArray.keys {
+            let codeValueDict[key] = filteredNamesDictionary.values.0
+        }
+        let sortedKeysAndValues = sorted(codeValueDict) { $0.1 < $1.1 } //sorted dictionary
+        let keys = sortedKeysAndValues.map {$0.0 } // names sorting complete
+        let values = sortedKeysAndValues.map {$0.1 } // distances sorting complete
+        for key in keys {
+            for value in values {
+                let sortedNamesDictionary[key] = value //names, distance
+            }
+        }
+        return sortedNamesDictionary
+        //sort based on ratio of (appearances in user-relevant ingredient list) / (appearances in all ingredients list)
+        //get appearances based on count
+        
+        
     }
     
     func binarySearch(words:[String], target: String){

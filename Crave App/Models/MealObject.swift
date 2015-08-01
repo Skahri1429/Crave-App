@@ -19,7 +19,8 @@ class MealObject: Object {
     dynamic var addressofVenue = ""
     dynamic var saved = false
     dynamic var priceValue: Int = 0
-    dynamic var matchedIngredients = [] // use .count function for sort priority in sortMeals()
+    dynamic var relevantMatchedIngredients = [] // use .count function for sort priority in sortMeals()
+    dynamic var allMatchedIngredients = [] //same as above
 
 
     //TO BE PASSED IN TO FILL OUT TABLE VIEW CELL WITH INFORMATION

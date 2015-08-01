@@ -118,6 +118,24 @@
             </objects>
             <point key="canvasLocation" x="630" y="274"/>
         </scene>
+        <!--Results-->
+        <scene sceneID="jEo-Na-o8T">
+            <objects>
+                <viewController id="qYU-vd-CXX" userLabel="Results" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VwB-cF-oF8"/>
+                        <viewControllerLayoutGuide type="bottom" id="EDd-Pm-VlC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0p5-F1-LMh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Km-Wx-7du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="-93"/>
+        </scene>
         <!--Item-->
         <scene sceneID="GLm-pK-Umw">
             <objects>
@@ -202,10 +220,10 @@
             </objects>
             <point key="canvasLocation" x="-224" y="263"/>
         </scene>
-        <!--Item-->
+        <!--User-->
         <scene sceneID="h4n-d1-N2M">
             <objects>
-                <viewController id="coo-JZ-SGj" sceneMemberID="viewController">
+                <viewController id="coo-JZ-SGj" userLabel="User" customClass="UserViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fPV-h6-gxZ"/>
                         <viewControllerLayoutGuide type="bottom" id="gZ7-H3-MxK"/>
@@ -220,52 +238,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxR-ma-xsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="630" y="1042"/>
-        </scene>
-        <!--Search Table View Controller-->
-        <scene sceneID="JeY-r8-t6C">
-            <objects>
-                <tableViewController storyboardIdentifier="venueSearch" id="EdU-Bb-1Tp" customClass="SearchTableViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SYc-Z2-w8m">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="NQr-7L-Cna">
-                            <rect key="frame" x="0.0" y="66" width="600" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Wab-Nt-Cci" detailTextLabel="XID-Ow-ktx" style="IBUITableViewCellStyleSubtitle" id="je9-PJ-JVL">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="je9-PJ-JVL" id="Qc9-zQ-Gnx">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wab-Nt-Cci">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.2783651352" green="0.1853051037" blue="0.59323644639999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XID-Ow-ktx">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="EdU-Bb-1Tp" id="6iF-gJ-2Tl"/>
-                            <outlet property="delegate" destination="EdU-Bb-1Tp" id="Fbw-lF-YCz"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RH0-jP-Imc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1544" y="274"/>
         </scene>
     </scenes>
     <resources>
