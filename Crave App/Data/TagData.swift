@@ -14,15 +14,15 @@ struct TagData {
     // set below to new values whenever the user eats.
 
     init() {
-        ingredients = self.ingredientArray
-        userCategoryFrequency = self.userCategoryFrequency
+        let ingredients = self.ingredientArray
+        let categoryFrequency = self.userCategoryFrequency
     }
     
-    enum FoodCategory {
+    enum FoodCategory: String {
         //http://stackoverflow.com/questions/27347396/enum-of-non-literal-values-in-swift
         case Afghan = "503288ae91d4c4b30a586d67"
         case African = "4bf58dd8d48988d1c8941735,4bf58dd8d48988d10a941735"
-        case American = "4bf58dd8d48988d14e941735,4bf58dd8d48988d157941735,4bf58dd8d48988d1df931735,4bf58dd8d48988d16c941735,4d4ae6fc7a7b7dea34424761"
+        case American = "4bf58dd8d48988d14e941735,4bf58dd8d48988d157941735,4bf58dd8d48988d1df931735,4bf58dd8d48988d16c941735,4d4ae6fc7a7b7dea34424761,4bf58dd8d48988d14c941735"
         case Asian = "4bf58dd8d48988d142941735,52e81612bcbc57f1066b7a03,4eb1bd1c3b7b55596b4a748f,52e81612bcbc57f1066b79fb,52af0bd33cf9994f4e043bdd,4bf58dd8d48988d111941735,55a59bace4b013909087cb0c,55a59bace4b013909087cb30,55a59bace4b013909087cb21,55a59bace4b013909087cb06,55a59bace4b013909087cb1b,55a59bace4b013909087cb1e,55a59bace4b013909087cb18,55a59bace4b013909087cb24,55a59bace4b013909087cb15,55a59bace4b013909087cb27,55a59bace4b013909087cb12,55a59bace4b013909087cb2d,55a59a31e4b013909087cb00,55a59af1e4b013909087cb03,55a59bace4b013909087cb2a,55a59bace4b013909087cb0f,55a59bace4b013909087cb33,55a59bace4b013909087cb09,55a59bace4b013909087cb36,4bf58dd8d48988d113941735,4bf58dd8d48988d156941735,4eb1d5724b900d56c88a45fe,4bf58dd8d48988d1d1941735,52af39fb3cf9994f4e043be9,4bf58dd8d48988d14a941735"
 //        case Australian
 //        case Austrian <- in East Euro
@@ -37,7 +37,7 @@ struct TagData {
        case Chinese = "4bf58dd8d48988d145941735,52af3a5e3cf9994f4e043bea,52af3a723cf9994f4e043bec,52af3a7c3cf9994f4e043bed,52af3a673cf9994f4e043beb,52af3a903cf9994f4e043bee,4bf58dd8d48988d1f5931735,52af3a9f3cf9994f4e043bef,52af3aaa3cf9994f4e043bf0,52af3ab53cf9994f4e043bf1,52af3abe3cf9994f4e043bf2,52af3ac83cf9994f4e043bf3,52af3ad23cf9994f4e043bf4,52af3add3cf9994f4e043bf5,52af3af23cf9994f4e043bf7,52af3ae63cf9994f4e043bf6,52af3afc3cf9994f4e043bf8,52af3b053cf9994f4e043bf9,52af3b213cf9994f4e043bfa,52af3b293cf9994f4e043bfb,52af3b343cf9994f4e043bfc,52af3b3b3cf9994f4e043bfd,52af3b463cf9994f4e043bfe,52af3b633cf9994f4e043c01,52af3b513cf9994f4e043bff,52af3b593cf9994f4e043c00,52af3b6e3cf9994f4e043c02,52af3b773cf9994f4e043c03,52af3b813cf9994f4e043c04,52af3b893cf9994f4e043c05,52af3b913cf9994f4e043c06,52af3b9a3cf9994f4e043c07,52af3ba23cf9994f4e043c08"
 //        case Czech <- in EastEuro
         case Deli = "4bf58dd8d48988d146941735"
-        case EastEuro = "52e81612bcbc57f1066b7a01,5293a7d53cf9994f4e043a45,52f2ae52bcbc57f1066b8b81,4bf58dd8d48988d109941735,52e928d0bcbc57f1066b7e97,52960bac3cf9994f4e043ac4,52e928d0bcbc57f1066b7e98
+        case EastEuro = "52e81612bcbc57f1066b7a01,5293a7d53cf9994f4e043a45,52f2ae52bcbc57f1066b8b81,4bf58dd8d48988d109941735,52e928d0bcbc57f1066b7e97,52960bac3cf9994f4e043ac4,52e928d0bcbc57f1066b7e98,52e81612bcbc57f1066b7a04,5293a7563cf9994f4e043a44,52e928d0bcbc57f1066b7e9d,52e928d0bcbc57f1066b7e9c,52e928d0bcbc57f1066b7e96,52e928d0bcbc57f1066b7e9a,52e928d0bcbc57f1066b7e9b"
 //        case English
         case Falafel = "4bf58dd8d48988d10b941735"
 //        case FishChips <-in seafood
@@ -57,14 +57,14 @@ struct TagData {
 //        case Jewish
         case Mediterranean = "4bf58dd8d48988d1c0941735,4bf58dd8d48988d1c3941735"
         case Mexican = "4bf58dd8d48988d1c1941735,4bf58dd8d48988d153941735,4bf58dd8d48988d151941735"
-        case Persian
-        case Pizza
+        case Persian = "52e81612bcbc57f1066b79f7"
+        case Pizza = "4bf58dd8d48988d1ca941735"
 //        case Polish <- in EastEuro
 //        case Portugeuese
 //        case Russian <- in EastEuro
         case Seafood = "4bf58dd8d48988d1d2941735,4edd64a0c7ddd24ca188df1a" //contains sushi
-        case Steakhouse
-        case Turkish
+        case Steakhouse = "4bf58dd8d48988d1cc941735"
+        case Turkish = "4f04af1f2fb6e1c99f3db0bb,530faca9bcbc57f1066bc2f3,530faca9bcbc57f1066bc2f4,5283c7b4e4b094cb91ec88d8,5283c7b4e4b094cb91ec88d9,5283c7b4e4b094cb91ec88d7,5283c7b4e4b094cb91ec88db,5283c7b4e4b094cb91ec88d6,5283c7b4e4b094cb91ec88d5,5283c7b4e4b094cb91ec88da,530faca9bcbc57f1066bc2f2,5283c7b4e4b094cb91ec88d4"
         case Thai = "4bf58dd8d48988d149941735"
 //        case Ukranian <- in EastEuro
 //        case VeggieVegan

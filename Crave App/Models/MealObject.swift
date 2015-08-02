@@ -13,12 +13,16 @@ class MealObject: Object {
     
     dynamic var mealTitle = ""
     dynamic var mealDescription = ""
-    dynamic var longitudeOfVenue = ""
-    dynamic var latitudeOfVenue = ""
-    dynamic var distanceToVenue = 0
-    dynamic var addressofVenue = ""
-    dynamic var saved = false
-    dynamic var priceValue: Int = 0
+    dynamic var nameOfVenue = ""
+    dynamic var priceValue: Double = 0
+    dynamic var score: Double = 0
+//    dynamic var longitudeOfVenue = ""
+//    dynamic var latitudeOfVenue = ""
+//    dynamic var distanceToVenue = 0
+//    dynamic var addressofVenue = ""
+//    dynamic var saved = false
+
+    
     dynamic var relevantMatchedIngredients = [] // use .count function for sort priority in sortMeals()
     dynamic var allMatchedIngredients = [] //same as above
 

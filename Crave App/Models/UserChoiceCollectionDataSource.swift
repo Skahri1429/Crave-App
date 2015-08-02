@@ -23,10 +23,9 @@ class UserChoiceCollectionDataSource {
     let tagData = TagData()
     var categoryTagSearch: [String] = TagData.returnRelevantCategories()
     let ingredientData: [String] = tagData.ingredients
-    let 
     
     let mealObject = MealObject()
-    let foundMeals: [mealObject] = []
+    let foundMeals: [MealObject] = []
     
     let currentUser = User()
     
@@ -118,16 +117,19 @@ class UserChoiceCollectionDataSource {
     
     
     func sortVenues(filteredNamesDictionary: [String: (Int, String)]) -> [String: Int] {
-        //now sort by distance. dictionary 1 or 0 from TagData.
+        // now sort by distance.
+        // dictionary is [Venue Name: (Distance from user, VenueID)]
+        let codeValueDict = filteredNamesDictionary
+        var sortedNamesDictionary: [String: Int] = [:]
         for key in filteredNamesDictionary.keys {
-            let codeValueDict[key] = filteredNamesDictionary.values.0
+            codeValueDict[key] = filteredNamesDictionary.values.0
         }
         let sortedKeysAndValues = sorted(codeValueDict) { $0.1 < $1.1 } //sorted dictionary
-        let keys = sortedKeysAndValues.map {$0.0 } // names sorting complete
-        let values = sortedKeysAndValues.map {$0.1 } // distances sorting complete
+        let keys = sortedKeysAndValues.map { $0.0 } // names sorting complete
+        let values = sortedKeysAndValues.map { $0.1 } // distances sorting complete
         for key in keys {
             for value in values {
-                let sortedNamesDictionary[key] = value //names, distance
+                sortedNamesDictionary[key] = value //names, distance
             }
         }
         return sortedNamesDictionary
@@ -178,6 +180,9 @@ class UserChoiceCollectionDataSource {
                                     mealObject.mealTitle = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["name"].stringValue
                                     mealObject.mealDescription = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["description"].stringValue
                                     mealObject.priceValue = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["price"].stringValue
+                                    let urlString: String = json["response"]["menu"]["provider"]["attributionLink"].stringValue
+                                    let urlArray: [String] = urlString.componentsSeparatedByString("/")
+                                    mealObject.nameOfVenue = urlArray[3].capitalizedString
                                     foundMeals.append(mealObject)
                                     
                                 }
@@ -206,70 +211,37 @@ class UserChoiceCollectionDataSource {
         
         let mealObjectArray = meals
         for mealItem in mealObjectArray {
+            
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
-            let mealDescriptionWordsArray = mealDescription.componentsSeparatedByCharactersInSet(characterSet)
-            var trimmedWordsArray = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
-
-            for ingredient in ingredientData {
-                for word in trimmedWordsArray {
-                    if word == ingredient {
-                        mealItem.relevantMatchedIngredients.append(ingredient)
-                        
-                    }
+            let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
+            
+            var userFound: Double = 0
+            let userBankArray = tagData.ingredientArray
+            
+            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userBankArray)
+        }
+    }
+    
+    func calcScore(wordArray: [String], userArray: [String]) -> Double {
+        //let totalBank = bankArray
+        let userBank = userArray
+        let descriptionArray = wordArray
+        for word in descriptionArray {
+            for comparison in userBank {
+                if word == comparison {
+                    userFound++
                 }
             }
         }
+        let score = userFound / Double(userBank.count)
+        return score
     }
     
-    func sortMeals(meals: [MealObject]) { //currently unnecessary
-
-        let mealObjectArray = meals
-        
-        for meal in mealObjectArray {
-            
-        }
-        
-        for key in mealObjectArray.keys {
-            let codeValueDict[key] = filteredNamesDictionary.values.0
-        }
-        let sortedKeysAndValues = sorted(codeValueDict) { $0.1 < $1.1 } //sorted dictionary
-        let keys = sortedKeysAndValues.map {$0.0 } // names sorting complete
-        let values = sortedKeysAndValues.map {$0.1 } // distances sorting complete
-        for key in keys {
-            for value in values {
-                let sortedNamesDictionary[key] = value //names, distance
-            }
-        }
-        return sortedNamesDictionary
-        //sort based on ratio of (appearances in user-relevant ingredient list) / (appearances in all ingredients list)
-        //get appearances based on count
-        
-        
-    }
-    
-    func binarySearch(words:[String], target: String){
-        // Initialize clamps
-        var left = words.startIndex
-        var right = words.endIndex
-        var midpoint = words.count / 2
-        var iterations = 0
-        
-        for index in left...right {
-            iterations += 1
-            if midpoint < target {
-                println("Low: \(midpoint) < \(target)")
-                left = midpoint
-                midpoint = (right + left) / 2
-            } else if midpoint > target {
-                println("High: \(midpoint) > \(target)")
-                right = midpoint
-                midpoint = (right + left) / 2
-            } else {
-                print("Target, \(target) acquired after \(iterations) iterations")
-                break
-            }
-        }
+    func sortMeals(meals: [MealObject]) -> [MealObject] { //sort by score
+        var mealObjectArray = meals
+        mealObjectArray.sort({ $0.score > $1.score })
+        return mealObjectArray
     }
     
     func wordCount(toSearch: String, target: String) -> [String: Int] {
