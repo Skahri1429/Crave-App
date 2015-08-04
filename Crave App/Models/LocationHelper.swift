@@ -14,8 +14,8 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     let coordinate = CLLocationDegrees()
-    let longitude: CLLocationDegrees!
-    let latitude: CLLocationDegrees!
+//    let longitude: CLLocationDegrees!
+//    let latitude: CLLocationDegrees!
     var locValue: CLLocationCoordinate2D!
 
     func setupLocation() {
@@ -56,8 +56,7 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         self.setupLocation()
-        longitude = self.locValue.longitude
-        latitude = self.locValue.latitude
+        
     }
 
 }

@@ -7,17 +7,17 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
-class User: Object {
+class User {
     let recommendedMeals: [MealObject] = []
-    
     let savedMeals: [MealObject] = []
-
-    let relevantCategories: [String] = ["4d4b7105d754a06374d81259"]
-    let ingredientsLiked: [String] = []
     
-    var likedFoodTypes: [FoodCategory] = []
+    let relevantCategories: [String] = ["4d4b7105d754a06374d81259"]
+     let ingredientsLiked: [String] = []
+    
+    let likedFoodTypes: [FoodCategory] = []
+    
     //somewhere for every swipe right you will have to append to likedFoodTypes array
     
     /*

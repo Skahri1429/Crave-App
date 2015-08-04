@@ -11,7 +11,7 @@ import UIKit
 
 import QuadratTouch
 
-class PlateViewController: UITableViewController, UITableViewDataSource, SearchTableViewControllerDelegate, SessionAuthorizationDelegate {
+class PlateViewController: UITableViewController, UITableViewDataSource, SessionAuthorizationDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -35,19 +35,13 @@ class PlateViewController: UITableViewController, UITableViewDataSource, SearchT
         
         
         // ACCESS USERCHOICECOLLECTIONDATASOURCE HERE 
+        UserChoiceCollectionDataSource().findVenues()
 
         numberFormatter.numberStyle = .DecimalStyle
-        
-        session = Session.sharedSession()
-        session.logger = ConsoleLogger()
         
         // Do any additional setup after loading the view.
     }
     
-    
-    func searchTableViewController(controller: SearchTableViewController, didSelectVenue venue:JSONParameters) {
-        println("now conforms to protocol")
-    }
     
 
 
