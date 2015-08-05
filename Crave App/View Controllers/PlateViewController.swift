@@ -8,10 +8,9 @@
 
 import UIKit
 
-
 import QuadratTouch
 
-class PlateViewController: UITableViewController, UITableViewDataSource, SessionAuthorizationDelegate {
+class PlateViewController: UITableViewController, UITableViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -19,8 +18,6 @@ class PlateViewController: UITableViewController, UITableViewDataSource, Session
     let locationManager = LocationHelper()
     let userChoice = UserChoiceCollectionDataSource()
     var searchController: UISearchController!
-    
-    var session : Session!
 
     var venueItems : [[String: AnyObject]]?
     
@@ -32,18 +29,18 @@ class PlateViewController: UITableViewController, UITableViewDataSource, Session
         self.tableView.delegate = self
         
         locationManager.setupLocation()
-        
-        
-        // ACCESS USERCHOICECOLLECTIONDATASOURCE HERE 
-        UserChoiceCollectionDataSource().findVenues()
+        userChoice.getUserSuggestions() // TODO: pass in a closure that takes [MealObject] that includes a call to suggestionsRecieved
 
         numberFormatter.numberStyle = .DecimalStyle
+        self.titleLabel.text = "Your Plate"
+        self.subtitleLabel.text = "The top 5 suggestions based on the information you provided"
         
         // Do any additional setup after loading the view.
     }
     
     
-
+// TODO: func suggestionsRecieved(food : [MealObject])
+    // do whatever UI business
 
     /*
     // MARK: - Navigation

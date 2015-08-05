@@ -8,20 +8,16 @@
 
 import UIKit
 import CoreLocation
-import QuadratTouch
 
 class LocationHelper: NSObject, CLLocationManagerDelegate {
     
-    var locationManager = CLLocationManager()
-    let coordinate = CLLocationDegrees()
-//    let longitude: CLLocationDegrees!
-//    let latitude: CLLocationDegrees!
+    let locationManager = CLLocationManager()
     var locValue: CLLocationCoordinate2D!
 
     func setupLocation() {
-        locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.delegate = self
+        locationManager.distanceFilter = kCLDistanceFilterNone
         let status = CLLocationManager.authorizationStatus()
         if status == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
@@ -34,29 +30,20 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        locationManager.stopUpdatingLocation()
         locValue = locationManager.location.coordinate
-        //println("locations = \(locValue.latitude) \(locValue.longitude)")
+        
     }
-
     
-//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-//        NSLog("didFailWithError: %@", error)
-////        var errorAlert: UIAlertView = UIAlertView(title: "Error", message: "Failed to Get Your Location", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: nil)
-////        errorAlert.show()
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-//        NSLog("didUpdateToLocation: %@", newLocation)
-//        var currentLocation: CLLocation? = newLocation
-//        println(currentLocation)
-//        locationManager.stopUpdatingLocation()
-//    }
+    // TODO: func getCurrentLocation
+    // take a closure that takes CLLocation and returns Void
+    // check if locValue exists
+    // if not ???
+    // otherwise perform closure that takes CLLocation and returns Void
     
     override init() {
         super.init()
         self.setupLocation()
-        
+        let location = self.locValue
     }
 
 }

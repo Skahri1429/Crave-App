@@ -30,6 +30,7 @@
 		28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBB1B56E207001B246A /* UserViewController.swift */; };
 		28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */; };
 		28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */; };
+		28E96B641B71CE6A002F009E /* ChooseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E96B631B71CE6A002F009E /* ChooseHelper.swift */; };
 		28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */; };
 		28EDD98B1B5F2CB30075A9E9 /* TagData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EDD98A1B5F2CB30075A9E9 /* TagData.swift */; };
 		A66EEA8CF9DCF4E81BDA281F /* Pods_Crave_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB1A72B772ACA01DD285677 /* Pods_Crave_App.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -117,6 +118,7 @@
 		28E30BBB1B56E207001B246A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateTableViewCell.swift; sourceTree = "<group>"; };
 		28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewCell.swift; sourceTree = "<group>"; };
+		28E96B631B71CE6A002F009E /* ChooseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseHelper.swift; sourceTree = "<group>"; };
 		28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChoiceCollectionDataSource.swift; sourceTree = "<group>"; };
 		28EDD98A1B5F2CB30075A9E9 /* TagData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagData.swift; sourceTree = "<group>"; };
 		42A704ADB18D561E3151CF68 /* Pods-Crave App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crave App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crave App/Pods-Crave App.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				28EDD9441B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift */,
+				28E96B631B71CE6A002F009E /* ChooseHelper.swift */,
 				289C423E1B646C6F00D6E57E /* LocationHelper.swift */,
 				289C42401B646EDB00D6E57E /* Storyboard.swift */,
 			);
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E96B641B71CE6A002F009E /* ChooseHelper.swift in Sources */,
 				28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */,
 				28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */,
 				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
