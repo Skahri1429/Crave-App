@@ -159,16 +159,22 @@ class UserChoiceCollectionDataSource {
                         println(menuCount)
                         if menuCount == 1 { //if #4
                             
-                            let menuItems = menuContainer!["items"]!.arrayValue
+                            let menuItems = menuContainer!["items"]!.arrayValue //lists all menus "main Menu"
                             for item in menuItems {
-                                let entries = item["entries"].dictionaryValue
-                                let realEntries = entries["items"]!.arrayValue
-                                for entry in realEntries{
-                                    let items = entry["entries"].dictionaryValue
-                                    for meal in foundMeals {
-                                        let mealTitle = items["name"]!.stringValue
-                                        let mealDescription = items["description"]!.stringValue
-                                        let priceValue = items["price"]!.stringValue
+                                let menuSections = item["entries"].dictionaryValue //subheadings in menus
+                                let subheadings = menuSections["items"]!.arrayValue
+                                for sub in subheadings {
+                                    let entries = sub["entries"].dictionaryValue
+                                    let food = entries["items"]!.arrayValue
+                                    for foodStuff in food {
+                                        for meal in foundMeals {
+                                        let mealTitle = foodStuff["name"].stringValue
+                                        let mealDescription = foodStuff["description"].stringValue
+                                        let priceValue = foodStuff["price"].stringValue
+                                        
+                                        meal.mealTitle = mealTitle
+                                        meal.mealDescription = mealDescription
+                                        meal.priceValue = priceValue
                                         println(meal.mealTitle)
                                         println(meal.mealDescription)
                                         println(meal.nameOfVenue)
@@ -178,36 +184,9 @@ class UserChoiceCollectionDataSource {
                                         println(meal.latitudeOfVenue)
                                     }
                                 }
+                                }
                             }
-//                            let entries = menuItems["entries"]!.dictionary
-//                            let subItems = entries!["items"]!.arrayValue
-                            
-//                            for subcategories in subItems {
-//                                
-//                                let subEntries = subcategories["entries"].dictionary
-//                                let dishItems = subEntries!["items"]!.arrayValue
-//                                
-//                                for dish in dishItems {
-//                                    for meal in foundMeals {
-//                                        meal.mealTitle = dish["name"].stringValue
-//                                        meal.mealDescription = dish["description"].stringValue
-//                                        meal.priceValue = dish["price"].doubleValue
-//                                        let menuResponse = json["response"]["menu"].dictionary
-//                                        let provider = menuResponse["provider"].dictionary
-//                                        let urlString = provider["attributionLink"].stringValue
-//                                        let urlArray: [String] = urlString.componentsSeparatedByString("/")
-//                                        meal.nameOfVenue = urlArray[3].capitalizedString
-//                                        println("")
-//                                        println(meal.mealTitle)
-//                                        println(meal.mealDescription)
-//                                        println(meal.nameOfVenue)
-//                                        println(meal.distanceToVenue)
-//                                        println(meal.addressofVenue)
-//                                        println(meal.longitudeOfVenue)
-//                                        println(meal.latitudeOfVenue)
-//                                    }
-//                                }
-//                            }
+
                         }// end if #4
                     
                 } else {
