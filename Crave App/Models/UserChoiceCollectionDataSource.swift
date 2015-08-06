@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import QuadratTouch
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -18,7 +17,7 @@ class UserChoiceCollectionDataSource {
     let tagData = TagData()
     var categoryTagSearch: [String] = []
    
-    let mealObject = MealObject()
+    var mealObject = MealObject()
     var foundMeals: [MealObject] = []
     
     let currentUser = User()
@@ -33,13 +32,12 @@ class UserChoiceCollectionDataSource {
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU"
     
-    let locationManager = LocationHelper()
-    
-    var venueNamesDictionary: [String: (Int, String)] = [:] //name : (distance from user, venueID)
-    var finishedVenueNamesDictiontary: [String: String] = [:] //name: venueID
+    let locationHelper = LocationHelper.sharedInstance
     
     var venueInformation: [(String, Int, String)]!
     var finishedVenueIdArray: [String] = []
+    var longitude: CLLocationDegrees!
+    var latitude: CLLocationDegrees!
     
     init() {
         self.categoryTagSearch = tagData.relevantUserTags
@@ -50,13 +48,11 @@ class UserChoiceCollectionDataSource {
     func getUserSuggestions() -> [MealObject] {
         
         // TODO: instead of returning [MealObject] take a closure as argument
+
+                 longitude = locationHelper.locValue?.longitude
+                 latitude = locationHelper.locValue?.latitude
         
-        
-        
-        let longitude = locationManager.locValue?.longitude
-        let latitude = locationManager.locValue?.latitude
         if counter == numElements {
-            
            let tempSortedVenues = sortVenues(venueInformation)
            finishedVenueIdArray = filterVenues(tempSortedVenues)
            foundMeals = findMeals(finishedVenueIdArray)
@@ -89,21 +85,14 @@ class UserChoiceCollectionDataSource {
                             println(name + " distance: \(distance)")
                             let tempTuple = (name, distance, id)
                             venueInformation.append(tempTuple)
-                        }
-//                            venueNamesDictionary[result["venue"]["name"].stringValue] =
-//                            (result["venues"]["location"]["distance"].int!, result["venue"]["id"].stringValue)
                             
-                            // dictName[key] = value
-                            
-                            /*
                             let mealObject = MealObject()
-                            let foundMeals: [mealObject] = []
-                                mealObject.longitudeOfVenue = result["venue"]["location"]["lng"].stringValue
-                                mealObject.latitudeOfVenue = result["venue"]["location"]["lat"].stringValue
-                                mealObject.addressofVenue = result["venue"]["location"]["formattedAddress"].stringValue
-                                mealObject.distanceToVenue = result["venues"]["location"]["distance"].int!
-                                foundMeals.append(mealObject)
-                            */
+                            mealObject.longitudeOfVenue = location!["lng"]!.doubleValue
+                            mealObject.latitudeOfVenue = location!["lat"]!.doubleValue
+                            mealObject.addressofVenue = location!["formattedAddress"]!.stringValue
+                            mealObject.distanceToVenue = location!["distance"]!.int!
+                            foundMeals.append(mealObject)
+                        }
                             counter++
                     }
                     
@@ -135,7 +124,7 @@ class UserChoiceCollectionDataSource {
         
     }
 
-    func filterVenues(sortedVenueInfo: [(String, Int, String)]) -> [String] { //returns array of closest 15VenueIDs
+    func filterVenues(sortedVenueInfo: [(String, Int, String)]) -> [String] {
         var idArray: [String] = []
         var filteredArray: [String] = []
         for venueElement in sortedVenueInfo {
@@ -147,7 +136,7 @@ class UserChoiceCollectionDataSource {
         return filteredArray
     }
 
-    func findMeals(venueIDArray: [String]) -> [MealObject] { //REUSABLE IN CHOOSEVIEWCONTROLLER
+    func findMeals(venueIDArray: [String]) -> [MealObject] {
         let venuesToSearch = venueIDArray
         var sortedMealObjects: [MealObject] = []
 
@@ -164,29 +153,26 @@ class UserChoiceCollectionDataSource {
                             for subcategories in json["response"]["menu"]["menus"]["items"]["entries"]["items"].arrayValue {
                                 
                                 for dishes in json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"].arrayValue {
-                                
-                                    mealObject.mealTitle = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["name"].stringValue
-                                    mealObject.mealDescription = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["description"].stringValue
-                                    mealObject.priceValue = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["price"].doubleValue
-                                    let urlString: String = json["response"]["menu"]["provider"]["attributionLink"].stringValue
-                                    let urlArray: [String] = urlString.componentsSeparatedByString("/")
-                                    mealObject.nameOfVenue = urlArray[3].capitalizedString
-                                    foundMeals.append(mealObject)
+                                    for meal in foundMeals {
+                                        meal.mealTitle = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["name"].stringValue
+                                        meal.mealDescription = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["description"].stringValue
+                                        meal.priceValue = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["price"].doubleValue
+                                        let urlString: String = json["response"]["menu"]["provider"]["attributionLink"].stringValue
+                                        let urlArray: [String] = urlString.componentsSeparatedByString("/")
+                                        meal.nameOfVenue = urlArray[3].capitalizedString
+                                    }
                                 }
                             }
                         }// end if #4
                     
                 } else {
                         println("Error in retrieving JSON")
-                } // end else
+                }
                     
         }
       } //end if #1
             searchMealDescriptions(foundMeals)
             sortedMealObjects = sortMeals(foundMeals)
-            // search Meal descriptions
-            //sort meal descriptions
-            // add number 1 to new array of top MealObjects
         }
         return sortedMealObjects
     } // end function
@@ -199,14 +185,13 @@ class UserChoiceCollectionDataSource {
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
             let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
-            let userBankArray = tagData.ingredientArray
+            let userBankArray = currentUser.ingredientsLiked
             
             mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userBankArray)
         }
     }
     
     func calcScore(wordArray: [String], userArray: [String]) -> Double {
-        //let totalBank = bankArray
         let userBank = userArray
         var userFound: Double = 0
         let descriptionArray = wordArray
@@ -221,7 +206,7 @@ class UserChoiceCollectionDataSource {
         return score
     }
     
-    func sortMeals(meals: [MealObject]) -> [MealObject] { //sort by score
+    func sortMeals(meals: [MealObject]) -> [MealObject] {
         var mealObjectArray = meals
         mealObjectArray.sort({ $0.score > $1.score })
         return mealObjectArray

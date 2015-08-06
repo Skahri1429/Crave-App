@@ -11,9 +11,9 @@ import UIKit
 class ChooseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var setupLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var incorrectButton: UIButton!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var suggestionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,6 @@ class ChooseViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         tableView.dataSource = self
         tableView.delegate = self
-        
         
         // Do any additional setup after loading the view.
     }

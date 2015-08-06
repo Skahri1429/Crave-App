@@ -9,7 +9,6 @@
 import UIKit
 import SenseSdk
 import Realm
-import QuadratTouch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,14 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // How to detect if first time launching
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let client = Client(clientID:"GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY",
-            clientSecret:   "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU",
-            redirectURL:    "cravefoodfinder://foursquare")
-        var configuration = Configuration(client:client)
-        configuration.mode = "foursquare"
-        configuration.shouldControllNetworkActivityIndicator = true
-        Session.setupSharedSessionWithConfiguration(configuration)
         
         // Override point for customization after application launch.
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
@@ -43,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return Session.sharedSession().handleURL(url)
+        return true
     }
 
  //   class func authorizeUserUsingClientId(clientID: String, callbackURLString: String, allowShowingAppStore: Bool) -> FSOAuthStatusCode {}

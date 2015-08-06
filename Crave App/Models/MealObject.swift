@@ -7,36 +7,25 @@
 //
 
 import UIKit
-//import RealmSwift
+import RealmSwift
 
 class MealObject {
     
-    var mealTitle = ""
-    var mealDescription = ""
-    var nameOfVenue = ""
-    var priceValue: Double = 0
-    var score: Double = 0
-//    dynamic var longitudeOfVenue = ""
-//    dynamic var latitudeOfVenue = ""
-//    dynamic var distanceToVenue = 0
-//    dynamic var addressofVenue = ""
-//    dynamic var saved = false
+    dynamic var mealTitle = ""
+    dynamic var mealDescription = ""
+    dynamic var nameOfVenue = ""
+    dynamic var priceValue: Double = 0
+    dynamic var score: Double = 0
+    dynamic var longitudeOfVenue: Double = 0
+    dynamic var latitudeOfVenue: Double = 0
+    dynamic var distanceToVenue: Int = 0
+    dynamic var addressofVenue = ""
+    dynamic var venueId = ""
+    dynamic var saved = false
 
     
     var relevantMatchedIngredients = [] // use .count function for sort priority in sortMeals()
-     var allMatchedIngredients = [] //same as above
-
-
-    //TO BE PASSED IN TO FILL OUT TABLE VIEW CELL WITH INFORMATION
-    
-   // meal image (perform google search)? 
-    // title of meal
-    // description of meal
-    // location of meal restaurant
-    // distance to restaurant
-    // bookmarked (true/false)
-    // address of venue
-    // hours of venue
+     var allMatchedIngredients = [] 
     
 }
  

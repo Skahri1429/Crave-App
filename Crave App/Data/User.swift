@@ -7,14 +7,14 @@
 //
 
 import UIKit
-//import RealmSwift
+import RealmSwift
 
 class User {
-    let recommendedMeals: [MealObject] = []
+    //let recommendedMeals: [MealObject] = []
     let savedMeals: [MealObject] = []
     
     let relevantCategories: [String] = ["4d4b7105d754a06374d81259"]
-     let ingredientsLiked: [String] = []
+    let ingredientsLiked: [String] = []
     
     let likedFoodTypes: [FoodCategory] = []
     

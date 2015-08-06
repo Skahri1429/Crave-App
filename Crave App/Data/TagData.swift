@@ -38,7 +38,6 @@ class TagData {
         }
         return sharedTagData.unorderedRelevantUserTags
     }
-    
     static func sharedInstance() -> TagData {
         return sharedTagData
     }

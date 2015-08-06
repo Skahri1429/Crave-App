@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
-import QuadratTouch
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -22,44 +20,38 @@ class ChooseHelper {
     var foundMeals: [MealObject] = []
     var sortedMealObjects: [MealObject] = []
     let tagData = TagData()
-    var categoryTagSearch: [String] = []
+    var categoryTagSearch: [String]!
     
     let currentUser = User()
     let ingredientData: [String]!
     
+    let longitude = UserChoiceCollectionDataSource().longitude
+    let latitude = UserChoiceCollectionDataSource().latitude
+
     init() {
         self.categoryTagSearch = tagData.relevantUserTags
         self.ingredientData  = currentUser.ingredientsLiked
-        
     }
-    
-    func findMeals(venueID: String) -> [MealObject] {
+ 
+    func locateVenue(query: String) -> [MealObject] {
         
-        let urlString = "https://api.foursquare.com/v2/venues/\(venueID)/menu&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
+        let searchQuery = query
+        let urlString = "https://api.foursquare.com/v2/venues/suggestCompletion?ll=\(longitude),\(latitude)&query=\(searchQuery)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
         
+        println(urlString)
         if let url = NSURL(string: urlString) { // if #1
             if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) { //if #2
                 let json = JSON(data: data)
                 if json["meta"]["code"].intValue == 200 { //if #3
-                    if json["response"]["menu"]["menus"]["count"].int == 1 { //if #4
-                        
-                        for subcategories in json["response"]["menu"]["menus"]["items"]["entries"]["items"].arrayValue {
-                            
-                            for dishes in json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"].arrayValue {
-                                
-                                mealObject.mealTitle = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["name"].stringValue
-                                mealObject.mealDescription = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["description"].stringValue
-                                mealObject.priceValue = json["response"]["menu"]["menus"]["items"]["entries"]["items"]["entries"]["items"]["price"].doubleValue
-                                let urlString: String = json["response"]["menu"]["provider"]["attributionLink"].stringValue
-                                let urlArray: [String] = urlString.componentsSeparatedByString("/")
-                                mealObject.nameOfVenue = urlArray[3].capitalizedString
-                                foundMeals.append(mealObject)
-                                
-                            }
-                        }
-                        
-                    }// end if #4
                     
+                    for venue in json["response"]["minivenues"].arrayValue {
+                         mealObject.venueId = venue["id"].stringValue
+                         mealObject.nameOfVenue = venue["name"].stringValue
+                         mealObject.distanceToVenue = venue["location"]["distance"].intValue
+                         mealObject.addressofVenue = venue["location"]["address"].stringValue
+                         foundMeals.append(mealObject)
+                    }
+ 
                 } else {
                     println("Error in retrieving JSON")
                 } // end else
@@ -69,9 +61,6 @@ class ChooseHelper {
         
         searchMealDescriptions(foundMeals)
         sortedMealObjects = sortMeals(foundMeals)
-        // search Meal descriptions
-        //sort meal descriptions
-        // add number 1 to new array of top MealObjects
         return sortedMealObjects
     } //end function
     
@@ -90,7 +79,6 @@ class ChooseHelper {
     }
     
     func calcScore(wordArray: [String], userArray: [String]) -> Double {
-        //let totalBank = bankArray
         let userBank = userArray
         var userFound: Double = 0
         let descriptionArray = wordArray

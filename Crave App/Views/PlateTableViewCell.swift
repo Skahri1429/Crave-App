@@ -9,8 +9,6 @@
 import UIKit
 
 class PlateTableViewCell: UITableViewCell {
-
-    var searchController: UISearchController!
     
     @IBOutlet weak var restaurantLabel: UILabel! {
         didSet {

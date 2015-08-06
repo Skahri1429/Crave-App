@@ -8,40 +8,39 @@
 
 import UIKit
 
-import QuadratTouch
-
 class PlateViewController: UITableViewController, UITableViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
 
-    let locationManager = LocationHelper()
+    let locationHelper = LocationHelper.sharedInstance
     let userChoice = UserChoiceCollectionDataSource()
-    var searchController: UISearchController!
-
-    var venueItems : [[String: AnyObject]]?
-    
-    let numberFormatter = NSNumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        locationManager.setupLocation()
-        userChoice.getUserSuggestions() // TODO: pass in a closure that takes [MealObject] that includes a call to suggestionsRecieved
+        locationHelper.setupLocation()
+        
+       //THIS CLOSURE IS NOT WORKING. NOT CALLING THE METHOD.
+        locationHelper.callback = {
+            
+        userChoice.getUserSuggestions() 
+        
+        }
 
-        numberFormatter.numberStyle = .DecimalStyle
         self.titleLabel.text = "Your Plate"
         self.subtitleLabel.text = "The top 5 suggestions based on the information you provided"
-        
-        // Do any additional setup after loading the view.
     }
     
     
 // TODO: func suggestionsRecieved(food : [MealObject])
     // do whatever UI business
-
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

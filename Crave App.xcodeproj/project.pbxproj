@@ -16,10 +16,10 @@
 		2803B9201B5C769100CBAC87 /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2811ABAA1B676D9E0065E039 /* MealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2811ABA91B676D9E0065E039 /* MealObject.swift */; };
 		28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28883A101B6C2A6A0003004B /* ResultsViewController.swift */; };
-		289C423D1B645C5C00D6E57E /* QuadratTouch.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 289C423A1B645C3A00D6E57E /* QuadratTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		289C423F1B646C6F00D6E57E /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C423E1B646C6F00D6E57E /* LocationHelper.swift */; };
 		289C42411B646EDB00D6E57E /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C42401B646EDB00D6E57E /* Storyboard.swift */; };
 		28BFAB6D1B6AAE6000D3D4CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFAB6C1B6AAE6000D3D4CA /* User.swift */; };
+		28CE31961B72D8FE002D7AFF /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE31951B72D8FE002D7AFF /* AutoCompleteTextField.swift */; };
 		28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30B8D1B56DF61001B246A /* AppDelegate.swift */; };
 		28E30B931B56DF61001B246A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E30B911B56DF61001B246A /* Main.storyboard */; };
 		28E30B951B56DF61001B246A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E30B941B56DF61001B246A /* Images.xcassets */; };
@@ -37,27 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		289C42371B645C3A00D6E57E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 289C42321B645C3900D6E57E /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70891A0EBAE700AFAC33;
-			remoteInfo = Quadrat;
-		};
-		289C42391B645C3A00D6E57E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 289C42321B645C3900D6E57E /* Quadrat.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 476B70DA1A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
-		289C423B1B645C5300D6E57E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 289C42321B645C3900D6E57E /* Quadrat.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 476B70D91A0EBBA500AFAC33;
-			remoteInfo = QuadratTouch;
-		};
 		28E30B9E1B56DF61001B246A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 28E30B801B56DF61001B246A /* Project object */;
@@ -85,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				289C423D1B645C5C00D6E57E /* QuadratTouch.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,10 +78,10 @@
 		2803B91D1B5C763600CBAC87 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2811ABA91B676D9E0065E039 /* MealObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealObject.swift; path = ../Models/MealObject.swift; sourceTree = "<group>"; };
 		28883A101B6C2A6A0003004B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		289C42321B645C3900D6E57E /* Quadrat.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quadrat.xcodeproj; path = "Quadrat/das-quadrat-develop/Source/Quadrat.xcodeproj"; sourceTree = "<group>"; };
 		289C423E1B646C6F00D6E57E /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		289C42401B646EDB00D6E57E /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		28BFAB6C1B6AAE6000D3D4CA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		28CE31951B72D8FE002D7AFF /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
 		28E30B881B56DF61001B246A /* Crave App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crave App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E30B8C1B56DF61001B246A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E30B8D1B56DF61001B246A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,19 +129,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		289C42331B645C3900D6E57E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				289C42381B645C3A00D6E57E /* Quadrat.framework */,
-				289C423A1B645C3A00D6E57E /* QuadratTouch.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		28E30B7F1B56DF61001B246A = {
 			isa = PBXGroup;
 			children = (
-				289C42321B645C3900D6E57E /* Quadrat.xcodeproj */,
 				2803B91D1B5C763600CBAC87 /* libz.dylib */,
 				2803B91B1B5C762D00CBAC87 /* SystemConfiguration.framework */,
 				2803B9191B5C762200CBAC87 /* CoreMotion.framework */,
@@ -253,6 +221,7 @@
 				2811ABA91B676D9E0065E039 /* MealObject.swift */,
 				28EDD98A1B5F2CB30075A9E9 /* TagData.swift */,
 				28BFAB6C1B6AAE6000D3D4CA /* User.swift */,
+				28CE31951B72D8FE002D7AFF /* AutoCompleteTextField.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -304,7 +273,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				289C423C1B645C5300D6E57E /* PBXTargetDependency */,
 			);
 			name = "Crave App";
 			productName = "Crave App";
@@ -358,12 +326,6 @@
 			mainGroup = 28E30B7F1B56DF61001B246A;
 			productRefGroup = 28E30B891B56DF61001B246A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 289C42331B645C3900D6E57E /* Products */;
-					ProjectRef = 289C42321B645C3900D6E57E /* Quadrat.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				28E30B871B56DF61001B246A /* Crave App */,
@@ -371,23 +333,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		289C42381B645C3A00D6E57E /* Quadrat.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Quadrat.framework;
-			remoteRef = 289C42371B645C3A00D6E57E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		289C423A1B645C3A00D6E57E /* QuadratTouch.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = QuadratTouch.framework;
-			remoteRef = 289C42391B645C3A00D6E57E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		28E30B861B56DF61001B246A /* Resources */ = {
@@ -468,6 +413,7 @@
 				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
 				28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */,
 				28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */,
+				28CE31961B72D8FE002D7AFF /* AutoCompleteTextField.swift in Sources */,
 				28BFAB6D1B6AAE6000D3D4CA /* User.swift in Sources */,
 				28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */,
 				28EDD9451B5D7A4A0075A9E9 /* UserChoiceCollectionDataSource.swift in Sources */,
@@ -490,11 +436,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		289C423C1B645C5300D6E57E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = QuadratTouch;
-			targetProxy = 289C423B1B645C5300D6E57E /* PBXContainerItemProxy */;
-		};
 		28E30B9F1B56DF61001B246A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 28E30B871B56DF61001B246A /* Crave App */;
