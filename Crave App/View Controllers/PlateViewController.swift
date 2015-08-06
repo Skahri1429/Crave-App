@@ -15,23 +15,28 @@ class PlateViewController: UITableViewController, UITableViewDataSource {
 
     let locationHelper = LocationHelper.sharedInstance
     let userChoice = UserChoiceCollectionDataSource()
+    var mealArray: [MealObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
         locationHelper.setupLocation()
         
        //THIS CLOSURE IS NOT WORKING. NOT CALLING THE METHOD.
-        locationHelper.callback = {
+        //locationHelper.callback = {
             
-        userChoice.getUserSuggestions() 
+        mealArray = userChoice.getUserSuggestions()
         
-        }
+        //}
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.estimatedRowHeight = 125
+        self.tableView.rowHeight = UITableViewAutomaticDimension
 
         self.titleLabel.text = "Your Plate"
         self.subtitleLabel.text = "The top 5 suggestions based on the information you provided"
+        
+        navigationController?.hidesBarsOnSwipe = true
     }
     
     
@@ -54,10 +59,15 @@ class PlateViewController: UITableViewController, UITableViewDataSource {
 }
 
 extension PlateViewController: UITableViewDataSource {
+    //https://realm.io/news/building-tableviews-swift-ios8/
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MealCell", forIndexPath: indexPath) as! PlateTableViewCell
-        
-        cell.restaurantLabelHolder = "The label functionality is working"
+        let meals = mealArray[indexPath.row]
+        cell.mealTitleLabel.text = meals.mealTitle
+        cell.descriptionLabel.text = meals.mealDescription
+        cell.priceLabel.text = "\(meals.priceValue)"
+       // cell.restaurantLabelHolder = "The label functionality is working"
         
         let row = indexPath.row
         

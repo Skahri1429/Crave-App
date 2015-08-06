@@ -188,11 +188,44 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="Nfg-II-fDW" customClass="PlateTableViewCell" customModule="Crave_App" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" rowHeight="125" id="Nfg-II-fDW" customClass="PlateTableViewCell" customModule="Crave_App" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nfg-II-fDW" id="gMM-Ar-cec">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meal Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2N-Jt-Txf">
+                                            <rect key="frame" x="8" y="8" width="89" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEa-WR-8uc">
+                                            <rect key="frame" x="8" y="37" width="89" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.83921575546264648" green="0.64313727617263794" blue="0.16470588743686676" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z65-t9-ds7">
+                                            <rect key="frame" x="520" y="9" width="55" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.14901961386203766" green="0.729411780834198" blue="0.35294118523597717" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="z65-t9-ds7" secondAttribute="bottom" constant="61.5" id="8iU-FT-aA7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="z65-t9-ds7" secondAttribute="trailing" constant="17" id="LSk-T5-5EI"/>
+                                        <constraint firstItem="z65-t9-ds7" firstAttribute="top" secondItem="gMM-Ar-cec" secondAttribute="topMargin" constant="1" id="Od0-Q0-IB4"/>
+                                        <constraint firstItem="z65-t9-ds7" firstAttribute="centerY" secondItem="C2N-Jt-Txf" secondAttribute="centerY" constant="1" id="jbL-rM-YKH"/>
+                                        <constraint firstItem="z65-t9-ds7" firstAttribute="leading" secondItem="C2N-Jt-Txf" secondAttribute="trailing" constant="423" id="riB-Uw-2E9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="sEa-WR-8uc" id="IrD-Ze-97G"/>
+                                    <outlet property="mealTitleLabel" destination="C2N-Jt-Txf" id="and-Ng-zdY"/>
+                                    <outlet property="priceLabel" destination="z65-t9-ds7" id="amd-5N-1tx"/>
+                                    <outlet property="restaurantLabel" destination="C2N-Jt-Txf" id="FXm-ZW-P0A"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

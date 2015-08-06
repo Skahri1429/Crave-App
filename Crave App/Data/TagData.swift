@@ -94,6 +94,8 @@ enum FoodCategory: String {
     //        case Ukranian <- in EastEuro
     //        case VeggieVegan
     //        case Wings <- in American
+    
+
 }
 
 
