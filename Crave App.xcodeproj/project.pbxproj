@@ -15,6 +15,8 @@
 		2803B91F1B5C769100CBAC87 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; };
 		2803B9201B5C769100CBAC87 /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28883A101B6C2A6A0003004B /* ResultsViewController.swift */; };
+		289654771B74952300FC7206 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */; };
+		289654791B7498BC00FC7206 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289654781B7498BC00FC7206 /* WelcomeViewController.swift */; };
 		289C423F1B646C6F00D6E57E /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C423E1B646C6F00D6E57E /* LocationHelper.swift */; };
 		289C42411B646EDB00D6E57E /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C42401B646EDB00D6E57E /* Storyboard.swift */; };
 		28BFAB6D1B6AAE6000D3D4CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFAB6C1B6AAE6000D3D4CA /* User.swift */; };
@@ -77,6 +79,8 @@
 		2803B91B1B5C762D00CBAC87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2803B91D1B5C763600CBAC87 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		28883A101B6C2A6A0003004B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
+		289654781B7498BC00FC7206 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		289C423E1B646C6F00D6E57E /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		289C42401B646EDB00D6E57E /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		28BFAB6C1B6AAE6000D3D4CA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				28E30BB91B56E200001B246A /* ChooseViewController.swift */,
 				28E30BBB1B56E207001B246A /* UserViewController.swift */,
 				28883A101B6C2A6A0003004B /* ResultsViewController.swift */,
+				289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */,
+				289654781B7498BC00FC7206 /* WelcomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -411,6 +417,8 @@
 				28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */,
 				28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */,
 				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
+				289654771B74952300FC7206 /* CategoriesCollectionViewController.swift in Sources */,
+				289654791B7498BC00FC7206 /* WelcomeViewController.swift in Sources */,
 				28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */,
 				28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */,
 				28CE31961B72D8FE002D7AFF /* AutoCompleteTextField.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 import SenseSdk
 import Realm
 
+let themeColor = UIColor(red: 0.99, green: 0.90, blue: 0.80, alpha: 1.0)
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // How to detect if first time launching
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        window?.tintColor = themeColor
         
         // Override point for customization after application launch.
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
@@ -25,14 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             println("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let setupController = storyBoard.instantiateViewControllerWithIdentifier("Setup Controller") as! UICollectionViewController
+            self.window?.rootViewController?.presentViewController(setupController, animated: true, completion: nil)
+            }
+        return true
         }
-        
+    
        // let urlAccess = authorizeUserUsingClientId("GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY", callbackURLString: "cravefoodfinder://foursquare", allowShowingAppStore: true)
         
       //  let errorCode = accessCodeForFSOAuthURL(urlAccess, error:
-        return true
-    }
-    
+
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         return true
     }

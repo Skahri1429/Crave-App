@@ -62,10 +62,10 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2j-4C-yNg" customClass="AutoCompleteTextField" customModule="Crave_App" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="search query" borderStyle="roundedRect" placeholder="Venue name goes here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l2j-4C-yNg" customClass="AutoCompleteTextField" customModule="Crave_App" customModuleProvider="target">
                                         <rect key="frame" x="200" y="122" width="200" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU2-5N-vuE">
                                         <rect key="frame" x="275" y="155" width="50" height="24"/>
@@ -253,6 +253,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtn-Cc-fRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="630" y="-455"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Eol-cW-udy">
+            <objects>
+                <viewController id="02O-OQ-6hu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DTs-1O-4wY"/>
+                        <viewControllerLayoutGuide type="bottom" id="BdI-Py-5ln"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XWD-Mc-wpN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGo-I6-6O8">
+                                <rect key="frame" x="143" y="167" width="314" height="69"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0T-9Y-Hdl">
+                                <rect key="frame" x="223" y="251" width="155" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-0P-kNH">
+                                <rect key="frame" x="255" y="403" width="90" height="30"/>
+                                <state key="normal" title="Get started!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0R2-OF-eAB" kind="show" id="wSn-v8-pKY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94602272727272729" green="0.91712533948440722" blue="0.82975484933745325" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bGo-I6-6O8" firstAttribute="top" secondItem="DTs-1O-4wY" secondAttribute="bottom" constant="147" id="3Zd-s4-L9E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U0T-9Y-Hdl" secondAttribute="trailing" constant="206" id="3eE-WZ-oiV"/>
+                            <constraint firstItem="U0T-9Y-Hdl" firstAttribute="leading" secondItem="XWD-Mc-wpN" secondAttribute="leadingMargin" constant="207" id="8U8-By-bCj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bGo-I6-6O8" secondAttribute="trailing" constant="127" id="8ei-P7-lah"/>
+                            <constraint firstItem="BdI-Py-5ln" firstAttribute="top" secondItem="QaZ-0P-kNH" secondAttribute="bottom" constant="167" id="Dfa-6h-6WD"/>
+                            <constraint firstItem="bGo-I6-6O8" firstAttribute="leading" secondItem="XWD-Mc-wpN" secondAttribute="leadingMargin" constant="127" id="Rqs-Hy-lj7"/>
+                            <constraint firstItem="QaZ-0P-kNH" firstAttribute="leading" secondItem="XWD-Mc-wpN" secondAttribute="leadingMargin" constant="239" id="es1-2Z-G0H"/>
+                            <constraint firstItem="QaZ-0P-kNH" firstAttribute="top" secondItem="U0T-9Y-Hdl" secondAttribute="bottom" constant="131" id="iiV-6p-ruU"/>
+                            <constraint firstItem="U0T-9Y-Hdl" firstAttribute="top" secondItem="DTs-1O-4wY" secondAttribute="bottom" constant="231" id="ljW-Mh-fyx"/>
+                            <constraint firstItem="U0T-9Y-Hdl" firstAttribute="top" secondItem="bGo-I6-6O8" secondAttribute="bottom" constant="15" id="uF1-bK-YFm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QaZ-0P-kNH" secondAttribute="trailing" constant="239" id="zHP-bF-zrH"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p3v-Z5-aOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1632" y="270"/>
+        </scene>
+        <!--Categories Collection View Controller-->
+        <scene sceneID="nSU-Gv-HU2">
+            <objects>
+                <collectionViewController storyboardIdentifier="Setup Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0R2-OF-eAB" customClass="CategoriesCollectionViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nqU-OM-8Rw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.86031468239176812" blue="0.69727631787996058" alpha="0.44" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ed6-bb-gsr">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="tL0-Rz-Hr7">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="120" height="120"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="0R2-OF-eAB" id="EaI-oL-Yd7"/>
+                            <outlet property="delegate" destination="0R2-OF-eAB" id="M8K-vu-K6U"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zq8-OT-S5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-964" y="269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="79x-eR-XYN">
