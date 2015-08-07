@@ -23,11 +23,10 @@ class UserChoiceCollectionDataSource {
     let currentUser = User()
     let ingredientData: [String]!
     
-    let numElements = 5
-//    lazy var numElements: Int = {
-//        
-//    return self.categoryTagSearch.count
-//}()
+    lazy var numElements: Int = {
+        
+    return self.categoryTagSearch.count
+}()
     
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU"
@@ -40,7 +39,7 @@ class UserChoiceCollectionDataSource {
     var latitude: CLLocationDegrees!
     
     init() {
-      //  self.categoryTagSearch = tagData.relevantUserTags
+        self.categoryTagSearch = tagData.relevantUserTags
         self.ingredientData  = currentUser.ingredientsLiked
         
     }
@@ -209,24 +208,24 @@ class UserChoiceCollectionDataSource {
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
             let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
-            let userBankArray = currentUser.ingredientsLiked
+            let userIngredientsLikedArray = currentUser.ingredientsLiked
             
-            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userBankArray)
+            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userIngredientsLikedArray)
         }
     }
     
     func calcScore(wordArray: [String], userArray: [String]) -> Double {
-        let userBank = userArray
+        let userIngredientBank = userArray
         var userFound: Double = 0
         let descriptionArray = wordArray
         for word in descriptionArray {
-            for comparison in userBank {
+            for comparison in userIngredientBank {
                 if word == comparison {
                     userFound++
                 }
             }
         }
-        let score = userFound / Double(userBank.count)
+        let score = userFound / Double(userIngredientBank.count)
         return score
     }
     
