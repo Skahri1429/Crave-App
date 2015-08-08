@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let setupController = storyBoard.instantiateViewControllerWithIdentifier("Setup Controller") as! UICollectionViewController
-            self.window?.rootViewController?.presentViewController(setupController, animated: true, completion: nil)
+            let welcomeController = storyBoard.instantiateViewControllerWithIdentifier("Welcome Controller") as! UICollectionViewController
+            self.window?.rootViewController?.presentViewController(welcomeController, animated: true, completion: nil)
             }
         return true
         }

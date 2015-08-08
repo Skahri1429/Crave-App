@@ -10,9 +10,8 @@
 var sharedTagData:TagData = TagData()
 
 class TagData {
-    // will create a list of relevant search terms to the user. 
-    // set below to new values whenever the user eats.
-
+    
+    // THIS CLASS IS UNNECESSARY NOW :D ONLY THE ENUM AT THE BOTTOM IS USEFUL
     
     var relevantUserTags: [String] = []
     var unorderedRelevantUserTags: [String] = []
@@ -46,6 +45,7 @@ class TagData {
     
 
 }
+
 
 enum FoodCategory: String { // 24 categories
     //http://stackoverflow.com/questions/27347396/enum-of-non-literal-values-in-swift

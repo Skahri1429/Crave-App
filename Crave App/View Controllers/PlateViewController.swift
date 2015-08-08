@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlateViewController: UITableViewController, UITableViewDataSource {
+class PlateViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -21,30 +21,28 @@ class PlateViewController: UITableViewController, UITableViewDataSource {
         super.viewDidLoad()
         locationHelper.setupLocation()
         
-       //THIS CLOSURE IS NOT WORKING. NOT CALLING THE METHOD.
-        //locationHelper.callback = {
+        locationHelper.callback = {
             
-        mealArray = userChoice.getUserSuggestions()
+        self.mealArray = self.userChoice.getUserSuggestions()
+            dispatch_async(dispatch_get_main_queue()){
+                self.tableView.reloadData()
+            };
+        }
         
-        //}
+        for meal in mealArray {
+            println(meal.mealTitle)
+        }
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.estimatedRowHeight = 125
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 125
+        tableView.rowHeight = UITableViewAutomaticDimension
 
-        self.titleLabel.text = "Your Plate"
-        self.subtitleLabel.text = "The top 5 suggestions based on the information you provided"
+        titleLabel.text = "Your Plate"
+        subtitleLabel.text = "The top 5 suggestions based on the information you provided"
         
         navigationController?.hidesBarsOnSwipe = true
     }
-    
-    
-// TODO: func suggestionsRecieved(food : [MealObject])
-    // do whatever UI business
-    
-    
-    
     
     /*
     // MARK: - Navigation
@@ -56,37 +54,36 @@ class PlateViewController: UITableViewController, UITableViewDataSource {
     }
     */
 
-}
-
-extension PlateViewController: UITableViewDataSource {
-    //https://realm.io/news/building-tableviews-swift-ios8/
-    
+  //https://realm.io/news/building-tableviews-swift-ios8/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MealCell", forIndexPath: indexPath) as! PlateTableViewCell
+        
+        
         let meals = mealArray[indexPath.row]
+        /* FATAL ERROR: ARRAY INDEX OUT OF RANGE
+        INDEXPATH.ROW = 0
+        */
+        
+        print(indexPath.row)
         cell.mealTitleLabel.text = meals.mealTitle
         cell.descriptionLabel.text = meals.mealDescription
         cell.priceLabel.text = "\(meals.priceValue)"
-       // cell.restaurantLabelHolder = "The label functionality is working"
-        
-        let row = indexPath.row
-        
-        /* how to add images to a cell, for later on:
-        cell.imageView?.image = UIImage(named: "YOUR_FILENAME_HERE")
-        */
+        //cell.restaurantLabelHolder = "The label functionality is working"
         
         return cell
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-}
-
-extension PlateViewController: UITableViewDelegate {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
+        print("stuff")
         //timelineComponent.targetWillDisplayEntry(indexPath.row)
     }
     

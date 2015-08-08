@@ -33,7 +33,7 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locValue = locationManager.location.coordinate
-        //callback()
+        callback()
     }
     
     // TODO: func getCurrentLocation

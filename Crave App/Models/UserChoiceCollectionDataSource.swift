@@ -13,19 +13,17 @@ import Alamofire
 import SwiftyJSON
 
 class UserChoiceCollectionDataSource {
-    
-    let tagData = TagData()
-    var categoryTagSearch: [String] = []
    
     var mealObject = MealObject()
     var foundMeals: [MealObject] = []
     
     let currentUser = User()
     let ingredientData: [String]!
+    var foodCategories = User().relevantCategories
     
     lazy var numElements: Int = {
         
-    return self.categoryTagSearch.count
+    return self.foodCategories.count
 }()
     
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
@@ -39,7 +37,6 @@ class UserChoiceCollectionDataSource {
     var latitude: CLLocationDegrees!
     
     init() {
-        self.categoryTagSearch = tagData.relevantUserTags
         self.ingredientData  = currentUser.ingredientsLiked
         
     }
@@ -54,11 +51,11 @@ class UserChoiceCollectionDataSource {
         if counter == numElements {
            let tempSortedVenues = sortVenues(venueInformation)
            finishedVenueIdArray = filterVenues(tempSortedVenues)
-           foundMeals = findMeals(["47a1bddbf964a5207a4d1fe3"])
+           foundMeals = findMeals(foodCategories)
         }
         
         else {
-        let foodCategories = currentUser.relevantCategories
+
            for tag in foodCategories {
             
             let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
@@ -208,9 +205,13 @@ class UserChoiceCollectionDataSource {
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
             let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
+            var description: [String] = []
+            for word in mealDescriptionWordsArray {
+                description.append(word.lowercaseString)
+            }
             let userIngredientsLikedArray = currentUser.ingredientsLiked
             
-            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userIngredientsLikedArray)
+            mealItem.score = calcScore(description, userArray: userIngredientsLikedArray)
         }
     }
     
