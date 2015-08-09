@@ -12,6 +12,7 @@ import MapKit
 class ResultsViewController: UIViewController {
     
     // I need to get these values from the specific MealObject that is stored in the cell I clicked on. How?
+    // Currently hardcoded values.
     let longitudeOfVenue: Double = 37.4520420
     let latitudeOfVenue: Double = 122.1374890
     let nameOfVenue: String = "Mountain Mike's Pizza"
