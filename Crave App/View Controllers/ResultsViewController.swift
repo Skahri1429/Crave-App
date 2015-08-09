@@ -14,6 +14,7 @@ class ResultsViewController: UIViewController {
     // I need to get these values from the specific MealObject that is stored in the cell I clicked on. How?
     let longitudeOfVenue: Double = 37.4520420
     let latitudeOfVenue: Double = 122.1374890
+    let nameOfVenue: String = "Mountain Mike's Pizza"
 
     
     @IBOutlet weak var venueImageView: UIImageView!
@@ -31,7 +32,7 @@ class ResultsViewController: UIViewController {
         let placeMark = MKPlacemark(coordinate: coords, addressDictionary: nil)
         var mapItem = MKMapItem(placemark: placeMark)
         
-        mapItem.name = "Your Destiny"
+        mapItem.name = nameOfVenue
         
         //You could also choose: MKLaunchOptionsDirectionsModeWalking
         var launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
@@ -42,6 +43,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         // Do any additional setup after loading the view
         

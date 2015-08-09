@@ -34,7 +34,12 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
 
         titleLabel.text = "Your Plate"
         subtitleLabel.text = "The top 5 suggestions based on the information you provided"
-
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     
@@ -78,7 +83,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        print("stuff")
+        print("cell recreated")
         //timelineComponent.targetWillDisplayEntry(indexPath.row)
     }
     
