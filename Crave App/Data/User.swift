@@ -11,12 +11,13 @@ import RealmSwift
 
 class User {
     //let recommendedMeals: [MealObject] = []
-    var savedMeals: [MealObject] = []
-    var ingredientsLiked: [String] = []
-    var relevantCategories = CategoriesCollectionViewController().categoriesSelected
+    dynamic var savedMeals: [MealObject] = []
+    dynamic var ingredientsLiked: [String] = []
+    dynamic var relevantCategories = CategoriesCollectionViewController().categoriesSelected
     
     init() {
         var ingredientsLiked = removeDuplicates(self.ingredientsLiked)
+        var relevantCategories = self.relevantCategories
     }
     
     func removeDuplicates(array: [String]) -> [String] {
@@ -50,27 +51,27 @@ class User {
                     ingredientsLiked.append(ingredient)
                 }
             case "American":
-                let arr: [String] = ["cheese", "chicken", "beef", "onion", "salt", "pepper", "soup", "pasta", "oil", "garlic", "tomato sauce", "butter", "milk", "potatoes", "corn"]
+                let arr: [String] = ["cheese", "chicken", "beef", "onion", "salt", "pepper", "soup", "pasta", "oil", "garlic", "tomato", "sauce", "butter", "milk", "potatoes", "corn"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Asian":
-                let arr: [String] = ["soy sauce", "rice vinegar", "fish sauce", "sriracha", "oyster sauce", "coconut milk", "curry paste", "miso paste", "sesame oil", "sake", "rice", "noodles", "ginger", "lime", "cilantro"]
+                let arr: [String] = ["soy", "sauce", "rice", "vinegar", "fish", "sriracha", "oyster", "coconut", "curry", "miso", "paste", "sesame", "oil", "sake", "rice", "noodles", "ginger", "lime", "cilantro"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Caribbean":
-                let arr: [String] = ["allspice", "callaloo", "coconut", "molasses", "pigeon peas", "pepper", "plantains", "rum", "scotch", "chiles", "turmeric"]
+                let arr: [String] = ["allspice", "callaloo", "coconut", "molasses", "pigeon", "peas", "pepper", "plantains", "rum", "scotch", "chiles", "turmeric"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Chinese":
-                let arr: [String] = ["bamboo shoots", "chile bean", "chile", "noodles", "sticky rice", "rice", "jasmine rice", "shiitake mushrooms", "sichuan peppercorns", "soy sauce", "sesame oil", "water chestnuts"]
+                let arr: [String] = ["bamboo shoots", "bean", "chile", "noodles", "sticky", "rice", "jasmine", "shiitake", "sichuan", "soy", "sesame ", "water", "chestnuts"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Deli":
-                let arr: [String] = ["cold cuts", "salad", "pasta", "potato", "chicken", "tuna", "shrimp", "cheese", "eggplant", "pastrami", "roast beef", "salami", "ham", "turkey", "bologna"]
+                let arr: [String] = ["cold", "cuts", "salad", "pasta", "potato", "chicken", "tuna", "shrimp", "cheese", "eggplant", "pastrami", "roast beef", "salami", "ham", "turkey", "bologna"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
@@ -80,27 +81,27 @@ class User {
                     ingredientsLiked.append(ingredient)
                 }
             case "French":
-                let arr: [String] = ["baguette", "butter", "cheese", "fleur de sal", "herbes de provence", "leeks", "mustard", "olive oil", "shallots", "tarragon", "chicken", "vinegar", "wine"]
+                let arr: [String] = ["baguette", "butter", "cheese", "fleur", "herbes", "provence", "leeks", "mustard", "olive oil", "shallots", "tarragon", "chicken", "vinegar", "wine"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "German":
-                let arr: [String] = ["pork", "beef", "chicken", "duck", "goose", "prunes", "apples", "venison", "wild boar", "hare", "pheasant", "trout", "potato", "dumplings", "cabbage", "carrots", "radishes", "turnips", "white asparagus"]
+                let arr: [String] = ["pork", "beef", "chicken", "duck", "goose", "prunes", "apples", "venison", "boar", "hare", "pheasant", "trout", "potato", "dumplings", "cabbage", "carrots", "radishes", "turnips", "asparagus"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Hawaiian":
-                let arr: [String] = ["taro", "sweet potato", "purple yam", "breadfruit", "sea salt", "mineral salt", "ti", "hala", "limpets", "kukui", "imu", "beef", "pork", "chicken", "butterfish", "soy sauce", "sesame oil", "coconut milk", "squid", "cornstarch"]
+                let arr: [String] = ["taro", "sweet potato", "purple yam", "breadfruit", "sea", "mineral", "ti", "hala", "limpets", "kukui", "imu", "beef", "pork", "chicken", "butterfish", "soy sauce", "sesame oil", "coconut milk", "squid", "cornstarch"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Indian":
-                let arr: [String] = ["lentils", "chickpeas", "cardamom", "chili", "cinnamon", "coriander", "cumin", "garam masala", "ginger", "mustard seed", "onion", "garlic", "turmeric", "rice", "cottage cheese", "chicken", "beans"]
+                let arr: [String] = ["lentils", "chickpeas", "cardamom", "chili", "cinnamon", "coriander", "cumin", "masala", "ginger", "mustard seed", "onion", "garlic", "turmeric", "rice", "cheese", "chicken", "beans"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
             case "Indonesian":
-                let arr: [String] = ["rice", "coconut milk", "turmeric", "wheat", "noodles", "bakpao", "cakwe", "yam", "sweet potato", "potato", "taro", "cassava", "maize", "breadfruit", "jackfruit", "spinach", "papaya", "cassava", "cabbage", "potato", "carrot", "beef", "chicken", "duck", "goat", "lamb"]
+                let arr: [String] = ["rice", "coconut", "turmeric", "wheat", "noodles", "bakpao", "cakwe", "yam", "sweet", "potato", "taro", "cassava", "maize", "breadfruit", "jackfruit", "spinach", "papaya", "cassava", "cabbage", "potato", "carrot", "beef", "chicken", "duck", "goat", "lamb"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
@@ -135,7 +136,7 @@ class User {
                     ingredientsLiked.append(ingredient)
                 }
             case "Thai":
-                let arr: [String] = []
+                let arr: [String] = ["fish", "sauce", "nam", "pla", "anchovies", "cilantro", "basil", "coriander", "chile", "coconut", "milk", "palm", "lemongrass", "bamboo", "beancurd", "beansprouts"]
                 for ingredient in arr {
                     ingredientsLiked.append(ingredient)
                 }
@@ -143,21 +144,8 @@ class User {
                 println("No ingredients appended")
             }
         }
+        for category in relevantCategories {
+            println(category)
+        }
     }
-
-    
-    //let likedFoodTypes: [FoodCategory] = []
-    
-    //somewhere for every swipe right you will have to append to likedFoodTypes array
-    
-    /*
-    for category in likedFoodTypes {
-        ingredients
-    }
-
-        
-    //create enum
-    //case selected
-        //populate with relevant ingredients
-}*/
 }

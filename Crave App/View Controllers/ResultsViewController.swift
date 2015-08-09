@@ -7,29 +7,45 @@
 //
 
 import UIKit
+import MapKit
 
 class ResultsViewController: UIViewController {
+    
+    // I need to get these values from the specific MealObject that is stored in the cell I clicked on. How?
+    let longitudeOfVenue: Double = 37.4520420
+    let latitudeOfVenue: Double = 122.1374890
 
+    
+    @IBOutlet weak var venueImageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var mealTitleLabel: UILabel!
+    @IBOutlet weak var mealDescriptionLabel: UILabel!
+    @IBOutlet weak var venueAddressLabel: UILabel!
+    @IBOutlet weak var openMapsButton: UIButton!
+    @IBOutlet weak var venueNameLabel: UILabel!
+
+    
+    @IBAction func openMaps(sender: UIButton) {
+        
+        let coords = CLLocationCoordinate2DMake(longitudeOfVenue, latitudeOfVenue)
+        let placeMark = MKPlacemark(coordinate: coords, addressDictionary: nil)
+        var mapItem = MKMapItem(placemark: placeMark)
+        
+        mapItem.name = "Your Destiny"
+        
+        //You could also choose: MKLaunchOptionsDirectionsModeWalking
+        var launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        
+        mapItem.openInMapsWithLaunchOptions(launchOptions)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        
+        // Do any additional setup after loading the view
+        
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -14,17 +14,10 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
 
     @IBOutlet weak var categoryLabel: UILabel!
     
-    
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     var categoriesSelected: [String] = []
     var ingredientsToAppend: [String] = []
-    let categoryBank = ["Afghan", "African", "American", "Asian", "Caribbean", "Chinese", "Deli", "EastEuro", "Falafel", "French", "German", "Greek", "Hawaiian", "Indian", "Indonesian", "Italian", "Mediterranean", "Mexican", "Persian", "Pizza", "Seafood", "Steakhouse", "Turkish", "Thai"]
-//    
-//    
-//    switch shit (category) {
-//    case "afghan" :
-//    return "503288ae91d4c4b30a586d67"
-//    }
+    let categoryBank = ["Afghan", "African", "American", "Asian", "Caribbean", "Chinese", "Deli", "EastEuro", "French", "German", "Hawaiian", "Indian", "Indonesian", "Italian", "Mediterranean", "Mexican", "Persian", "Pizza", "Seafood", "Thai"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +30,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
         self.collectionView!.dataSource = self
         self.collectionView!.delegate = self
         self.collectionView!.allowsMultipleSelection = true
+        self.collectionView!.selectItemAtIndexPath(nil, animated: true, scrollPosition: .None)
 
         // Do any additional setup after loading the view.
     }
@@ -53,7 +47,7 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        //
+        //don't think you need this, since you're going through multiple functions
     }
     
 
