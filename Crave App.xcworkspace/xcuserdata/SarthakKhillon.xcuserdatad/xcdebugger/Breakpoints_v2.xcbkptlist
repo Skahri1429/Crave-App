@@ -32,22 +32,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Crave App/View Controllers/PlateViewController.swift"
-            timestampString = "460764040.950795"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -122,54 +106,6 @@
             endingLineNumber = "36"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Crave App/View Controllers/PlateViewController.swift"
-            timestampString = "460811393.807864"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "reloadData()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Crave_App.PlateViewController.viewDidLoad (Crave_App.PlateViewController)() -&gt; ()"
-                  moduleName = "Crave App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/SarthakKhillon/Desktop/Crave%20App/Crave%20App/View%20Controllers/PlateViewController.swift"
-                  timestampString = "460811393.811328"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "161">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Crave_App.PlateViewController.(viewDidLoad (Crave_App.PlateViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "Crave App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/SarthakKhillon/Desktop/Crave%20App/Crave%20App/View%20Controllers/PlateViewController.swift"
-                  timestampString = "460811393.811542"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

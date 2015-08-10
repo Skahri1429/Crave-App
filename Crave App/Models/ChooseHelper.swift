@@ -23,11 +23,13 @@ class ChooseHelper {
     var sortedMealObjects: [MealObject] = []
     
     let currentUser = User()
-    let ingredientData: [String] = currentUser.ingredientsLiked
-    let categoryTagSearch = currentUser.relevantCategories
+    var ingredientData: [String] = currentUser.ingredientsLiked
+    var categoryTagSearch = currentUser.relevantCategories
     
-    let longitude = UserChoiceCollectionDataSource().longitude
-    let latitude = UserChoiceCollectionDataSource().latitude
+    let userChoice = UserChoiceCollectionDataSource()
+    
+    var longitude = userChoice.longitude
+    var latitude = userChoice.latitude
  
     func locateVenue(query: String) -> [MealObject] {
         

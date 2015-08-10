@@ -312,7 +312,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.45882352941176469" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="wIt-4b-WmJ" firstAttribute="top" secondItem="Y9o-ti-xrP" secondAttribute="topMargin" id="Cxi-uq-sbY"/>
                                 <constraint firstItem="OyP-ak-AbI" firstAttribute="leading" secondItem="Y9o-ti-xrP" secondAttribute="leading" constant="13" id="MEk-5Q-6RG"/>
@@ -378,7 +378,7 @@
                             <outlet property="delegate" destination="EM1-fc-vwe" id="Mdg-Xe-wIL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Qji-GA-nBY"/>
+                    <navigationItem key="navigationItem" id="Qji-GA-nBY" colorLabel="IBBuiltInLabel-Orange"/>
                     <connections>
                         <outlet property="subtitleLabel" destination="OyP-ak-AbI" id="vyf-Tv-ncV"/>
                         <outlet property="titleLabel" destination="wIt-4b-WmJ" id="pg2-q6-aEO"/>
@@ -498,7 +498,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nqU-OM-8Rw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.86031468239176812" blue="0.69727631787996058" alpha="0.44" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.31372549020000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ed6-bb-gsr">
                             <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -537,13 +537,7 @@
                             <outlet property="delegate" destination="0R2-OF-eAB" id="M8K-vu-K6U"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="nQz-8E-zUD">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="wOD-PP-oKM">
-                            <connections>
-                                <segue destination="QMC-TT-aj4" kind="show" id="9BC-RU-PVS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="nQz-8E-zUD"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zq8-OT-S5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -668,6 +662,6 @@
         <image name="Choose" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Toj-rX-yyT"/>
+        <segue reference="H8H-nE-NqA"/>
     </inferredMetricsTieBreakers>
 </document>

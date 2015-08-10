@@ -19,8 +19,8 @@ class UserChoiceCollectionDataSource: Object {
     var foundMeals: [MealObject] = []
     
     let currentUser = User()
-    var ingredientData = currentUser.ingredientsLiked
-    var foodCategories = currentUser.relevantCategories
+    var ingredientData = currentUser!.ingredientsLiked
+    var foodCategories = currentUser!.relevantCategories
     
     lazy var numElements: Int = {
         
@@ -36,11 +36,6 @@ class UserChoiceCollectionDataSource: Object {
     var finishedVenueIdArray: [String] = []
     var longitude: CLLocationDegrees!
     var latitude: CLLocationDegrees!
-    
-    init() {
-        self.ingredientData  = currentUser.ingredientsLiked
-        
-    }
    
     func getUserSuggestions() -> [MealObject] {
         

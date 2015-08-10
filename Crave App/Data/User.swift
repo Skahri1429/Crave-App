@@ -15,7 +15,7 @@ class User: Object {
     dynamic var ingredientsLiked: [String] = []
     dynamic var relevantCategories = CategoriesCollectionViewController().categoriesSelected
     
-    init() {
+    required init() {
         var ingredientsLiked = removeDuplicates(self.ingredientsLiked)
         var relevantCategories = self.relevantCategories
     }
@@ -150,8 +150,8 @@ class User: Object {
         }
         
         realm.write {
-            self.realm.add(ingredientsLiked)
-            self.realm.add(relevantCategories)
+            self.realm.add(self.ingredientsLiked)
+            self.realm.add(self.relevantCategories)
         }
         
     }

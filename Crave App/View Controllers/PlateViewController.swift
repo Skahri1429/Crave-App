@@ -18,26 +18,25 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     let userChoice = UserChoiceCollectionDataSource()
     var mealArray: [MealObject] = []
     
-    func reloadData() {
+    func getResults(refreshControl: UIRefreshControl) -> [MealObject] {
+        //handle meal results getting here. put this in a callback in the viewdidload
+        
         self.tableView.reloadData()
         if (self.refreshControl != nil) {
             self.refreshControl!.endRefreshing()
         }
     }
     
-    func getResults() -> [MealObject] {
-        //handle meal results getting here. put this in a callback in the viewdidload
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationHelper.setupLocation()
         
-        locationHelper.callback = {
-
-        self.mealArray = self.userChoice.getUserSuggestions()
-            
-        }
+//        locationHelper.callback = {
+//
+//        self.mealArray = self.userChoice.getUserSuggestions()
+//            
+//        }
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -50,8 +49,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.backgroundColor = UIColor.redColor()
         self.refreshControl?.tintColor = UIColor.whiteColor()
-        self.refreshControl?.addTarget(self, action: "getResults", forControlEvents: UIControlEventValueChanged)
-        
+        self.refreshControl?.addTarget(self, action: "getResults", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     
@@ -92,18 +90,18 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if mealArray {
+        if mealArray.count > 0 {
             return 1
         } else {
             var messageLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
             messageLabel.text = "No data is currently available. Please pull down to refresh."
             messageLabel.textColor = UIColor.blackColor()
             messageLabel.numberOfLines = 0
-            messageLabel.textAlignment = NSTextAlignmentCenter
-            messageLabel.font = UIFont.fontWithName("Palatino-Italic", size: 20)
+            messageLabel.textAlignment = NSTextAlignment.Center
+            messageLabel.font = UIFont(name: "Palatino-Italic", size: 20)
             messageLabel.sizeToFit()
             self.tableView.backgroundView = messageLabel
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         }
     }
     

@@ -25,6 +25,11 @@ class ChooseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
