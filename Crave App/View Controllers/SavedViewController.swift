@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class SavedViewController: UIViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var textLabel: UILabel!

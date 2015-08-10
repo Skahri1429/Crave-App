@@ -13,16 +13,24 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 
-class UserChoiceCollectionDataSource: Object {
-   
-    var mealObject = MealObject()
-    var foundMeals: [MealObject] = []
+class UserChoiceCollectionDataSource {
     
-    let currentUser = User()
-    var ingredientData = currentUser!.ingredientsLiked
-    var foodCategories = currentUser!.relevantCategories
+    var currentUser = Realm().objects(User)
+    var mealObject = MealObject()
+    var foundMeals: List<MealObject> = List<MealObject>()
+    var foodCategories: List<RealmString>!
+    var sortedMealObjects: [MealObject] = []
+    
+    var ingredientData:List<RealmString>!
+//    var currentUser = User() {
+//        didSet {
+//            self.ingredientData = self.currentUser.ingredientsLiked
+//            self.foodCategories = self.currentUser.relevantCategories
+//        }
+//    }
     
     lazy var numElements: Int = {
+        
         
     return self.foodCategories.count
 }()
@@ -37,7 +45,18 @@ class UserChoiceCollectionDataSource: Object {
     var longitude: CLLocationDegrees!
     var latitude: CLLocationDegrees!
    
+    required init(){
+        self.ingredientData = currentUser.first!.realIngredientsLiked
+        self.foodCategories = currentUser.first!.relevantCategories
+        
+    }
+    
     func getUserSuggestions() -> [MealObject] {
+        
+        var categories: [String]!
+        for i in 0...foodCategories.count {
+            categories.append(foodCategories[i].string)
+        }
         
         // TODO: instead of returning [MealObject] take a closure as argument
 
@@ -47,12 +66,13 @@ class UserChoiceCollectionDataSource: Object {
         if counter == numElements {
            let tempSortedVenues = sortVenues(venueInformation)
            finishedVenueIdArray = filterVenues(tempSortedVenues)
-           foundMeals = findMeals(foodCategories)
+           foundMeals = findMeals(categories)
+            
         }
         
         else {
 
-           for tag in foodCategories {
+           for tag in categories! {
             
             let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
             
@@ -99,7 +119,11 @@ class UserChoiceCollectionDataSource: Object {
         }
             counter++
         }
-    return foundMeals
+        var returnedMeals: [MealObject] = []
+        for i in 0...foundMeals.count {
+            returnedMeals.append(foundMeals[i])
+        }
+    return returnedMeals
     }
     
     func sortVenues(unfilteredVenueInfo: [(String, Int, String)]) -> [(String, Int, String)] {
@@ -133,7 +157,7 @@ class UserChoiceCollectionDataSource: Object {
         return filteredArray
     }
 
-    func findMeals(venueIDArray: [String]) -> [MealObject] {
+    func findMeals(venueIDArray: [String]) -> List<MealObject> {
         let venuesToSearch = venueIDArray
         var sortedMealObjects: [MealObject] = []
 
@@ -190,12 +214,20 @@ class UserChoiceCollectionDataSource: Object {
             searchMealDescriptions(foundMeals)
             sortedMealObjects = sortMeals(foundMeals)
         }
-        return sortedMealObjects
+        var returnedMealObjects: List<MealObject> = List<MealObject>()
+        for i in 0...sortedMealObjects.count {
+            returnedMealObjects.append(sortedMealObjects[i])
+        }
+        return returnedMealObjects
     } // end function
 
-    func searchMealDescriptions(meals: [MealObject]) {
+    func searchMealDescriptions(meals: List<MealObject>) {
         
-        let mealObjectArray = meals
+        var mealObjectList = meals
+        var mealObjectArray: [MealObject] = []
+        for i in 0...mealObjectList.count {
+            mealObjectArray.append(mealObjectList[i])
+        }
         for mealItem in mealObjectArray {
             
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
@@ -205,13 +237,13 @@ class UserChoiceCollectionDataSource: Object {
             for word in mealDescriptionWordsArray {
                 description.append(word.lowercaseString)
             }
-            let userIngredientsLikedArray = self.ingredientData
+            //let userIngredientsLikedArray = self.ingredientData
             
-            mealItem.score = calcScore(description, userArray: userIngredientsLikedArray)
+            mealItem.score = calcScore(description, userArray: self.ingredientData!)
         }
     }
     
-    func calcScore(wordArray: [String], userArray: [String]) -> Double {
+    func calcScore(wordArray: [String], userArray: List<RealmString>) -> Double {
         let userIngredientBank = userArray
         var userFound: Double = 0
         let descriptionArray = wordArray
@@ -226,8 +258,12 @@ class UserChoiceCollectionDataSource: Object {
         return score
     }
     
-    func sortMeals(meals: [MealObject]) -> [MealObject] {
-        var mealObjectArray = meals
+    func sortMeals(meals: List<MealObject>) -> [MealObject] {
+        var mealObjectList = meals
+        var mealObjectArray: [MealObject] = []
+        for i in 0...mealObjectList.count {
+            mealObjectArray.append(mealObjectList[i])
+        }
         mealObjectArray.sort({ $0.score > $1.score })
         return mealObjectArray
     }

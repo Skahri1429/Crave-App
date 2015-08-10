@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 let reuseIdentifier = "Cell"
 
@@ -15,7 +16,9 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
     @IBOutlet weak var categoryLabel: UILabel!
     
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-    var categoriesSelected: [String] = []
+
+    var categoriesSelected: List<RealmString> = List<RealmString>()
+    var catSelected: [String] = []
     var ingredientsToAppend: [String] = []
     let categoryBank = ["Afghan", "African", "American", "Asian", "Caribbean", "Chinese", "Deli", "EastEuro", "French", "German", "Hawaiian", "Indian", "Indonesian", "Italian", "Mediterranean", "Mexican", "Persian", "Pizza", "Seafood", "Thai"]
     
@@ -59,13 +62,11 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
         return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
         return categoryBank.count
     }
 
@@ -99,79 +100,95 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
             
             switch(category) {
                 case "Afghan":
-                categoriesSelected.append("503288ae91d4c4b30a586d67")
+                catSelected.append("503288ae91d4c4b30a586d67")
                 
                 case "African":
                     let catHolder = "4bf58dd8d48988d1c8941735"
                     let catArray = catHolder.componentsSeparatedByString(",")
                     for cat in catArray {
-                        categoriesSelected.append(cat)
+                        catSelected.append(cat)
                 }
                 
                 case "American":
                     let catHolder = "4bf58dd8d48988d14e941735"
                     let catArray = catHolder.componentsSeparatedByString(",")
                     for cat in catArray {
-                        categoriesSelected.append(cat)
+                        catSelected.append(cat)
                     }
                 
                 case "Asian":
                 let catHolder = "4bf58dd8d48988d142941735"
                 let catArray = catHolder.componentsSeparatedByString(",")
                 for cat in catArray {
-                categoriesSelected.append(cat)
+                catSelected.append(cat)
                 }
                 
                 case "Caribbean":
-                categoriesSelected.append("4bf58dd8d48988d144941735")
+                catSelected.append("4bf58dd8d48988d144941735")
+                
                 case "Chinese":
                     let catHolder = "4bf58dd8d48988d145941735"
                     let catArray = catHolder.componentsSeparatedByString(",")
                     for cat in catArray {
-                        categoriesSelected.append(cat)
+                        catSelected.append(cat)
                     }
                 
             case "Deli":
-                categoriesSelected.append("4bf58dd8d48988d146941735")
+                catSelected.append("4bf58dd8d48988d146941735")
+                
             case "EastEuro":
                 let catHolder = "52e81612bcbc57f1066b7a01,5293a7d53cf9994f4e043a45,52f2ae52bcbc57f1066b8b81,4bf58dd8d48988d109941735,52e928d0bcbc57f1066b7e97,52960bac3cf9994f4e043ac4,52e928d0bcbc57f1066b7e98,52e81612bcbc57f1066b7a04,5293a7563cf9994f4e043a44,52e928d0bcbc57f1066b7e9d,52e928d0bcbc57f1066b7e9c,52e928d0bcbc57f1066b7e96,52e928d0bcbc57f1066b7e9a,52e928d0bcbc57f1066b7e9b"
                 let catArray = catHolder.componentsSeparatedByString(",")
                 for cat in catArray {
-                categoriesSelected.append(cat)
+                catSelected.append(cat)
                 }
             case "Falafel":
-                categoriesSelected.append("4bf58dd8d48988d10b941735")
+                catSelected.append("4bf58dd8d48988d10b941735")
             case "French":
-                categoriesSelected.append("4bf58dd8d48988d10c941735")
+                catSelected.append("4bf58dd8d48988d10c941735")
             case "German":
-                categoriesSelected.append("4bf58dd8d48988d10d941735")
+                catSelected.append("4bf58dd8d48988d10d941735")
             case "Hawaiian":
-                categoriesSelected.append("52e81612bcbc57f1066b79fe")
+                catSelected.append("52e81612bcbc57f1066b79fe")
             case "Indian":
-                categoriesSelected.append("4bf58dd8d48988d10f941735")
+                catSelected.append("4bf58dd8d48988d10f941735")
             case "Indonesian":
-                categoriesSelected.append("52960eda3cf9994f4e043ac9")
+                catSelected.append("52960eda3cf9994f4e043ac9")
             case "Italian":
-                categoriesSelected.append("4bf58dd8d48988d110941735")
+                catSelected.append("4bf58dd8d48988d110941735")
             case "Mediterranean":
-                categoriesSelected.append("4bf58dd8d48988d1c0941735,4bf58dd8d48988d1c3941735")
+                catSelected.append("4bf58dd8d48988d1c0941735,4bf58dd8d48988d1c3941735")
             case "Mexican":
-                categoriesSelected.append("4bf58dd8d48988d1c1941735")
+                catSelected.append("4bf58dd8d48988d1c1941735")
             case "Persian":
-                categoriesSelected.append("52e81612bcbc57f1066b79f7")
+                catSelected.append("52e81612bcbc57f1066b79f7")
             case "Pizza":
-                categoriesSelected.append("4bf58dd8d48988d1ca941735")
+                catSelected.append("4bf58dd8d48988d1ca941735")
             case "Seafood":
-                categoriesSelected.append("4bf58dd8d48988d1d2941735,4edd64a0c7ddd24ca188df1a")
+                catSelected.append("4bf58dd8d48988d1d2941735,4edd64a0c7ddd24ca188df1a")
             case "Steakhouse":
-                    categoriesSelected.append("4bf58dd8d48988d1cc941735")
+                    catSelected.append("4bf58dd8d48988d1cc941735")
             case "Turkish":
-                categoriesSelected.append("4f04af1f2fb6e1c99f3db0bb")
+                catSelected.append("4f04af1f2fb6e1c99f3db0bb")
             case "Thai":
-            categoriesSelected.append("4bf58dd8d48988d149941735")
+            catSelected.append("4bf58dd8d48988d149941735")
             default:
                 println("No categories appended")
             }
+            
+            for cat in catSelected {
+                categoriesSelected.append(RealmString(value: cat))
+            }
+            
+            var currentUser = User()
+            currentUser.relevantCategories = self.categoriesSelected
+            
+            let realm = Realm()
+            
+            realm.write {
+                realm.add(currentUser)
+            }
+            
     }
 
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {

@@ -8,28 +8,40 @@
 
 import UIKit
 import Foundation
-import Alamofire
+//import Alamofire
 import SwiftyJSON
 import RealmSwift
+import CoreLocation
 
-class ChooseHelper {
+class ChooseHelper: Object {
 
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU"
     
-    let realm = Realm()
-    let mealObject = MealObject()
-    var foundMeals: [MealObject] = []
+
+    var currentUser = Realm().objects(User)
+    var mealObject = MealObject()
+    var foundMeals: List<MealObject> = List<MealObject>()
     var sortedMealObjects: [MealObject] = []
     
-    let currentUser = User()
-    var ingredientData: [String] = currentUser.ingredientsLiked
-    var categoryTagSearch = currentUser.relevantCategories
+    var ingredientData:List<RealmString>! //= currentUser.ingredientsLiked
+    //var categoryTagSearch = currentUser.relevantCategories
     
-    let userChoice = UserChoiceCollectionDataSource()
+    required init(){
+        super.init()
+        
+         ingredientData = currentUser.first!.realIngredientsLiked
+    }
     
-    var longitude = userChoice.longitude
-    var latitude = userChoice.latitude
+    var userChoice = UserChoiceCollectionDataSource() {
+        didSet {
+            self.longitude = userChoice.longitude
+            self.latitude = userChoice.latitude
+        }
+    }
+    
+    var longitude: CLLocationDegrees?
+    var latitude: CLLocationDegrees?
  
     func locateVenue(query: String) -> [MealObject] {
         
@@ -56,23 +68,30 @@ class ChooseHelper {
                 
             }
         } //end if #1
-        
-        searchMealDescriptions(foundMeals)
-        sortedMealObjects = sortMeals(foundMeals)
+        var processedMealData: [MealObject] = []
+        for i in 0...foundMeals.count {
+            processedMealData.append(foundMeals[i])
+        }
+        searchMealDescriptions(processedMealData)
+        sortedMealObjects = sortMeals(processedMealData)
         return sortedMealObjects
     } //end function
     
     func searchMealDescriptions(meals: [MealObject]) {
         
         let mealObjectArray = meals
+        var processedIngredientData: [String] = []
+        for i in 0...ingredientData.count {
+            processedIngredientData.append(ingredientData[i].string)
+        }
         for mealItem in mealObjectArray {
             
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
             let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
-            let userBankArray = ingredientData
+            //let userBankArray = ingredientData
             
-            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userBankArray)
+            mealItem.score = calcScore(mealDescriptionWordsArray, userArray: processedIngredientData)
         }
     }
     

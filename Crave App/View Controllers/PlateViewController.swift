@@ -14,17 +14,24 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
 
+    var cellLocation = 0
     let locationHelper = LocationHelper.sharedInstance
     let userChoice = UserChoiceCollectionDataSource()
-    var mealArray: [MealObject] = []
+//    var mealArray: [MealObject] = []
+    dynamic var mealList = List<MealObject>()
     
-    func getResults(refreshControl: UIRefreshControl) -> [MealObject] {
+    func getResults(refreshControl: UIRefreshControl) -> List<MealObject> {
         //handle meal results getting here. put this in a callback in the viewdidload
         
         self.tableView.reloadData()
         if (self.refreshControl != nil) {
             self.refreshControl!.endRefreshing()
         }
+        var tempMealArray = self.userChoice.getUserSuggestions()
+        for i in 0...tempMealArray.count {
+            self.mealList.insert(tempMealArray[i], atIndex: i)
+        }
+        return mealList
     }
     
     override func viewDidLoad() {
@@ -61,26 +68,29 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     
     // MARK: - Navigation
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        cellLocation = indexPath.row
+        self.performSegueWithIdentifier("", sender: self)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "plateSegue" {
             if let destinationVC = segue.destinationViewController as? ResultsViewController {
-                
+                destinationVC.mealObject = mealList[cellLocation]
             }
         }
     }
+    
 
   //https://realm.io/news/building-tableviews-swift-ios8/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MealCell", forIndexPath: indexPath) as! PlateTableViewCell
         
         
-//        let meals = mealArray[indexPath.row]
-//        /* FATAL ERROR: ARRAY INDEX OUT OF RANGE
-//        INDEXPATH.ROW = 0
-//        */
-//        
+//        let meals = mealList.subscript([indexPath.row])
 //        print(indexPath.row)
 //        cell.mealTitleLabel.text = meals.mealTitle
 //        cell.descriptionLabel.text = meals.mealDescription
@@ -90,7 +100,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if mealArray.count > 0 {
+        if mealList.indexOf(mealList.last!) > 0 { // roundabout way of mealList.count
             return 1
         } else {
             var messageLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
@@ -102,6 +112,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
             messageLabel.sizeToFit()
             self.tableView.backgroundView = messageLabel
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0
         }
     }
     
@@ -111,7 +122,7 @@ class PlateViewController: UITableViewController, UITableViewDataSource, UITable
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        print("cell recreated")
+        print("cell recreated ")
         //timelineComponent.targetWillDisplayEntry(indexPath.row)
     }
     

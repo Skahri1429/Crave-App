@@ -10,17 +10,20 @@ import UIKit
 import RealmSwift
 
 class User: Object {
-    //let recommendedMeals: [MealObject] = []
-    dynamic var savedMeals: [MealObject] = []
+    
+    dynamic var savedMeals: List<MealObject> = List<MealObject>()
     dynamic var ingredientsLiked: [String] = []
-    dynamic var relevantCategories = CategoriesCollectionViewController().categoriesSelected
+    dynamic var realIngredientsLiked: List<RealmString> = List<RealmString>()
+    
+    dynamic var relevantCategories: List<RealmString> = List<RealmString>()
     
     required init() {
-        var ingredientsLiked = removeDuplicates(self.ingredientsLiked)
+        super.init()
+        var realIngredientsLiked = removeDuplicates(self.ingredientsLiked)
         var relevantCategories = self.relevantCategories
     }
     
-    func removeDuplicates(array: [String]) -> [String] {
+    func removeDuplicates(array: [String]) -> List<RealmString> {
         var encountered = Set<String>()
         var result: [String] = []
         for value in array {
@@ -28,18 +31,24 @@ class User: Object {
                 // Do not add a duplicate element.
             }
             else {
-                // Add value to the set.
                 encountered.insert(value)
-                // ... Append the value.
                 result.append(value)
             }
         }
-        return result
+        for i in 0...result.count {
+            realIngredientsLiked.append(RealmString(value: result[i]))
+        }
+        return realIngredientsLiked
     }
     
     func appendIngredients() {
-        let realm = Realm()
-        for relevant in relevantCategories {
+        //let realm = Realm()
+        var categories: [String] = []
+        for i in 0...relevantCategories.indexOf(relevantCategories.last!)! {
+            let stringHolder = relevantCategories[i].string
+            categories.append(stringHolder)
+        }
+        for relevant in categories {
             switch relevant {
             case "Afghan":
                 let arr: [String] = ["onions", "lamb", "rice", "lentils", "bolani", "mantwo", "aushak", "kabob"]
@@ -144,14 +153,6 @@ class User: Object {
             default:
                 println("No ingredients appended")
             }
-        }
-        for category in relevantCategories {
-            println(category)
-        }
-        
-        realm.write {
-            self.realm.add(self.ingredientsLiked)
-            self.realm.add(self.relevantCategories)
         }
         
     }

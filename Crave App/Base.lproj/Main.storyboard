@@ -37,9 +37,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="qYU-vd-CXX" kind="show" identifier="chooseSegue" id="H8H-nE-NqA"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -162,7 +159,7 @@
                                                     <constraint firstAttribute="height" constant="56" id="xTb-Lu-TgB"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG2-yU-o7D">
@@ -180,19 +177,19 @@
                                                     <constraint firstAttribute="height" constant="35" id="HdL-2t-fAs"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Venue Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zo-zd-1qz">
                                                 <rect key="frame" x="19" y="188" width="538" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meal Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-2z-1ya">
                                                 <rect key="frame" x="8" y="0.0" width="392" height="70"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="48"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNQ-ta-zZa">
@@ -278,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Km-Wx-7du" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952" y="274"/>
+            <point key="canvasLocation" x="2984" y="269"/>
         </scene>
         <!--Plate View Controller-->
         <scene sceneID="GLm-pK-Umw">
@@ -369,7 +366,6 @@
                                     <outlet property="mealTitleLabel" destination="C2N-Jt-Txf" id="and-Ng-zdY"/>
                                     <outlet property="priceLabel" destination="z65-t9-ds7" id="amd-5N-1tx"/>
                                     <outlet property="restaurantLabel" destination="C2N-Jt-Txf" id="FXm-ZW-P0A"/>
-                                    <segue destination="qYU-vd-CXX" kind="show" identifier="plateSegue" id="Toj-rX-yyT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -382,6 +378,7 @@
                     <connections>
                         <outlet property="subtitleLabel" destination="OyP-ak-AbI" id="vyf-Tv-ncV"/>
                         <outlet property="titleLabel" destination="wIt-4b-WmJ" id="pg2-q6-aEO"/>
+                        <segue destination="qYU-vd-CXX" kind="show" identifier="plateSegue" id="trg-H6-GmU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtn-Cc-fRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -406,7 +403,7 @@
                                     <constraint firstAttribute="width" constant="517" id="1qi-Ad-TC5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -432,7 +429,7 @@
                                     <constraint firstAttribute="width" constant="300" id="jjp-P0-d3V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -516,7 +513,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leZ-7q-zyv">
                                             <rect key="frame" x="25" y="49" width="71" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -566,7 +563,7 @@
         <!--User-->
         <scene sceneID="h4n-d1-N2M">
             <objects>
-                <viewController id="coo-JZ-SGj" userLabel="User" customClass="UserViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="coo-JZ-SGj" userLabel="User" customClass="SavedViewController" customModule="Crave_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fPV-h6-gxZ"/>
                         <viewControllerLayoutGuide type="bottom" id="gZ7-H3-MxK"/>
@@ -661,7 +658,4 @@
     <resources>
         <image name="Choose" width="64" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="H8H-nE-NqA"/>
-    </inferredMetricsTieBreakers>
 </document>

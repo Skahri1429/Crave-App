@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class MealObject {
+class MealObject: Object {
     
     dynamic var mealTitle = ""
     dynamic var mealDescription = ""

@@ -14,6 +14,8 @@
 		2803B91E1B5C763600CBAC87 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B91D1B5C763600CBAC87 /* libz.dylib */; };
 		2803B91F1B5C769100CBAC87 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; };
 		2803B9201B5C769100CBAC87 /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2803B9151B5C741100CBAC87 /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		285C16531B791F4C002199E9 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C16521B791F4C002199E9 /* RealmString.swift */; };
+		286E91801B793DD2003A51B0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286E917F1B793DD2003A51B0 /* SwiftyJSON.framework */; };
 		28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28883A101B6C2A6A0003004B /* ResultsViewController.swift */; };
 		289654771B74952300FC7206 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */; };
 		289654791B7498BC00FC7206 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289654781B7498BC00FC7206 /* WelcomeViewController.swift */; };
@@ -30,7 +32,7 @@
 		28E30BA41B56DF61001B246A /* Crave_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BA31B56DF61001B246A /* Crave_AppTests.swift */; };
 		28E30BB61B56E1E8001B246A /* PlateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB51B56E1E8001B246A /* PlateViewController.swift */; };
 		28E30BBA1B56E200001B246A /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BB91B56E200001B246A /* ChooseViewController.swift */; };
-		28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBB1B56E207001B246A /* UserViewController.swift */; };
+		28E30BBC1B56E207001B246A /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBB1B56E207001B246A /* SavedViewController.swift */; };
 		28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */; };
 		28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */; };
 		28E96B641B71CE6A002F009E /* ChooseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E96B631B71CE6A002F009E /* ChooseHelper.swift */; };
@@ -78,6 +80,8 @@
 		2803B9191B5C762200CBAC87 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		2803B91B1B5C762D00CBAC87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2803B91D1B5C763600CBAC87 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		285C16521B791F4C002199E9 /* RealmString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
+		286E917F1B793DD2003A51B0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		28883A101B6C2A6A0003004B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		289654781B7498BC00FC7206 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		28E30BA31B56DF61001B246A /* Crave_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crave_AppTests.swift; sourceTree = "<group>"; };
 		28E30BB51B56E1E8001B246A /* PlateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateViewController.swift; sourceTree = "<group>"; };
 		28E30BB91B56E200001B246A /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
-		28E30BBB1B56E207001B246A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		28E30BBB1B56E207001B246A /* SavedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		28E30BBE1B56F3B0001B246A /* PlateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlateTableViewCell.swift; sourceTree = "<group>"; };
 		28E30BC21B57493A001B246A /* ChooseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewCell.swift; sourceTree = "<group>"; };
 		28E96B631B71CE6A002F009E /* ChooseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseHelper.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286E91801B793DD2003A51B0 /* SwiftyJSON.framework in Frameworks */,
 				2803B91E1B5C763600CBAC87 /* libz.dylib in Frameworks */,
 				2803B91C1B5C762D00CBAC87 /* SystemConfiguration.framework in Frameworks */,
 				2803B91A1B5C762200CBAC87 /* CoreMotion.framework in Frameworks */,
@@ -204,7 +209,7 @@
 			children = (
 				28E30BB51B56E1E8001B246A /* PlateViewController.swift */,
 				28E30BB91B56E200001B246A /* ChooseViewController.swift */,
-				28E30BBB1B56E207001B246A /* UserViewController.swift */,
+				28E30BBB1B56E207001B246A /* SavedViewController.swift */,
 				28883A101B6C2A6A0003004B /* ResultsViewController.swift */,
 				289654761B74952300FC7206 /* CategoriesCollectionViewController.swift */,
 				289654781B7498BC00FC7206 /* WelcomeViewController.swift */,
@@ -239,6 +244,7 @@
 				28E96B631B71CE6A002F009E /* ChooseHelper.swift */,
 				289C423E1B646C6F00D6E57E /* LocationHelper.swift */,
 				289C42401B646EDB00D6E57E /* Storyboard.swift */,
+				285C16521B791F4C002199E9 /* RealmString.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 		D77BB64539E020682E2BCA1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				286E917F1B793DD2003A51B0 /* SwiftyJSON.framework */,
 				8AB1A72B772ACA01DD285677 /* Pods_Crave_App.framework */,
 			);
 			name = Frameworks;
@@ -314,6 +321,11 @@
 				TargetAttributes = {
 					28E30B871B56DF61001B246A = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					28E30B9C1B56DF61001B246A = {
 						CreatedOnToolsVersion = 6.4;
@@ -416,9 +428,10 @@
 				28E96B641B71CE6A002F009E /* ChooseHelper.swift in Sources */,
 				28E30BC31B57493A001B246A /* ChooseTableViewCell.swift in Sources */,
 				28E30B8E1B56DF61001B246A /* AppDelegate.swift in Sources */,
-				28E30BBC1B56E207001B246A /* UserViewController.swift in Sources */,
+				28E30BBC1B56E207001B246A /* SavedViewController.swift in Sources */,
 				28D6A67B1B75664800428543 /* CategoryCollectionViewCell.swift in Sources */,
 				289654771B74952300FC7206 /* CategoriesCollectionViewController.swift in Sources */,
+				285C16531B791F4C002199E9 /* RealmString.swift in Sources */,
 				289654791B7498BC00FC7206 /* WelcomeViewController.swift in Sources */,
 				28883A111B6C2A6A0003004B /* ResultsViewController.swift in Sources */,
 				28E30BBF1B56F3B0001B246A /* PlateTableViewCell.swift in Sources */,
@@ -563,6 +576,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Crave App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -579,6 +593,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Crave App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
