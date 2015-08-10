@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class User {
+class User: Object {
     //let recommendedMeals: [MealObject] = []
     dynamic var savedMeals: [MealObject] = []
     dynamic var ingredientsLiked: [String] = []
@@ -38,6 +38,7 @@ class User {
     }
     
     func appendIngredients() {
+        let realm = Realm()
         for relevant in relevantCategories {
             switch relevant {
             case "Afghan":
@@ -147,5 +148,11 @@ class User {
         for category in relevantCategories {
             println(category)
         }
+        
+        realm.write {
+            self.realm.add(ingredientsLiked)
+            self.realm.add(relevantCategories)
+        }
+        
     }
 }

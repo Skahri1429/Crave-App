@@ -11,15 +11,16 @@ import CoreLocation
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
-class UserChoiceCollectionDataSource {
+class UserChoiceCollectionDataSource: Object {
    
     var mealObject = MealObject()
     var foundMeals: [MealObject] = []
     
     let currentUser = User()
-    let ingredientData: [String]!
-    var foodCategories = User().relevantCategories
+    var ingredientData = currentUser.ingredientsLiked
+    var foodCategories = currentUser.relevantCategories
     
     lazy var numElements: Int = {
         
@@ -209,7 +210,7 @@ class UserChoiceCollectionDataSource {
             for word in mealDescriptionWordsArray {
                 description.append(word.lowercaseString)
             }
-            let userIngredientsLikedArray = currentUser.ingredientsLiked
+            let userIngredientsLikedArray = self.ingredientData
             
             mealItem.score = calcScore(description, userArray: userIngredientsLikedArray)
         }

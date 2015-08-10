@@ -10,28 +10,24 @@ import UIKit
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class ChooseHelper {
 
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU"
     
+    let realm = Realm()
     let mealObject = MealObject()
     var foundMeals: [MealObject] = []
     var sortedMealObjects: [MealObject] = []
-    let tagData = TagData()
-    var categoryTagSearch: [String]!
     
     let currentUser = User()
-    let ingredientData: [String]!
+    let ingredientData: [String] = currentUser.ingredientsLiked
+    let categoryTagSearch = currentUser.relevantCategories
     
     let longitude = UserChoiceCollectionDataSource().longitude
     let latitude = UserChoiceCollectionDataSource().latitude
-
-    init() {
-        self.categoryTagSearch = tagData.relevantUserTags
-        self.ingredientData  = currentUser.ingredientsLiked
-    }
  
     func locateVenue(query: String) -> [MealObject] {
         
@@ -72,7 +68,7 @@ class ChooseHelper {
             let mealDescription = mealItem.mealDescription // [String] of meal descriptions
             let characterSet: NSCharacterSet = NSCharacterSet.punctuationCharacterSet()
             let mealDescriptionWordsArray: [String] = (mealDescription.componentsSeparatedByCharactersInSet(characterSet) as NSArray).componentsJoinedByString("").componentsSeparatedByString(" ")
-            let userBankArray = tagData.ingredientArray
+            let userBankArray = ingredientData
             
             mealItem.score = calcScore(mealDescriptionWordsArray, userArray: userBankArray)
         }
