@@ -63,54 +63,59 @@ class UserChoiceCollectionDataSource {
         else {
 
            for tag in categories! {
+            Alamofire.request(.GET, "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729").responseJSON() {
+                (_, _, data, _) in
+                let json = data as! JSON
+                println(json)
+                //print(json["response"]["venues"])
+                if json["meta"]["code"].intValue == 200 {
+                    // we're OK to parse!
+                    
+                    let venues = json["response"]["venues"].arrayValue
+                    
+                    for venue in venues {
+                        let venueDict = venue.dictionary
+                        let name = venueDict!["name"]!.stringValue
+                        let id = venueDict!["id"]!.stringValue
+                        let location = venueDict!["location"]!.dictionary
+                        let distance = location!["distance"]!.intValue
+                        
+                        // println(name + " distance: \(distance)")
+                        let tempTuple = (name, distance, id)
+                        self.venueInformation.append(tempTuple)
+                        
+                        let mealObject = MealObject()
+                        mealObject.nameOfVenue = name
+                        mealObject.longitudeOfVenue = location!["lng"]!.doubleValue
+                        mealObject.latitudeOfVenue = location!["lat"]!.doubleValue
+                        mealObject.addressofVenue = location!["formattedAddress"]!.stringValue
+                        mealObject.distanceToVenue = location!["distance"]!.int!
+                        self.foundMeals.append(mealObject)
+                        
+                    } // end for venue in venue
+                } // end if meta code
             
-            let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
+            } // end Alamofire closure
             
+//            let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(longitude),\(latitude)&categoryId=\(tag)&client_id=\(CLIENT_ID)&client_secret=\(CLIENT_SECRET)&v=20150729"
+//            
             //println(urlString)
             
-            if let url = NSURL(string: urlString) {
-                if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
-                    let json = JSON(data: data)
-                    //print(json["response"]["venues"])
-                    if json["meta"]["code"].intValue == 200 {
-                        // we're OK to parse!
-                        
-                        let venues = json["response"]["venues"].arrayValue
-                        
-                        for venue in venues {
-                            let venueDict = venue.dictionary
-                           let name = venueDict!["name"]!.stringValue
-                            let id = venueDict!["id"]!.stringValue
-                            let location = venueDict!["location"]!.dictionary
-                            let distance = location!["distance"]!.intValue
-                            
-                           // println(name + " distance: \(distance)")
-                            let tempTuple = (name, distance, id)
-                            venueInformation.append(tempTuple)
-                            
-                            let mealObject = MealObject()
-                            mealObject.nameOfVenue = name
-                            mealObject.longitudeOfVenue = location!["lng"]!.doubleValue
-                            mealObject.latitudeOfVenue = location!["lat"]!.doubleValue
-                            mealObject.addressofVenue = location!["formattedAddress"]!.stringValue
-                            mealObject.distanceToVenue = location!["distance"]!.int!
-                            foundMeals.append(mealObject)
-                            
-                        }
-                    }
-                    
-                }
-                    
-            }
-            else {
+//            if let url = NSURL(string: urlString) {
+//                if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
+            
+//                }
+//                    
+//            }
+            } else {
                 println("Error in retrieving JSON")
             }
             }
         }
-            counter++
+            self.counter++
         }
         var returnedMeals: [MealObject] = []
-        for i in 0...foundMeals.count {
+        for i in 0...self.foundMeals.count {
             returnedMeals.append(foundMeals[i])
         }
     return returnedMeals
@@ -257,4 +262,3 @@ class UserChoiceCollectionDataSource {
         mealObjectArray.sort({ $0.score > $1.score })
         return mealObjectArray
     }
-}

@@ -111,7 +111,7 @@
             startingLineNumber = "144"
             endingLineNumber = "144"
             landmarkName = "filterVenues(_:)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -291,6 +291,22 @@
             startingLineNumber = "190"
             endingLineNumber = "190"
             landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crave App/Models/UserChoiceCollectionDataSource.swift"
+            timestampString = "460972507.084601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getUserSuggestions()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
