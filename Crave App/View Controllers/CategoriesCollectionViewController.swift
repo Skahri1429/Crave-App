@@ -185,7 +185,8 @@ class CategoriesCollectionViewController: UICollectionViewController, UICollecti
             
             let realm = Realm()
             
-            realm.write {
+            realm.write() {
+                println(currentUser.description)
                 realm.add(currentUser)
             }
             

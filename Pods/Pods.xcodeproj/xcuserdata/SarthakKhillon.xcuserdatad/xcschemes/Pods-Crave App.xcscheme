@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E967C35D971EFC77C4C2423E"
+               BlueprintIdentifier = "85EEC1F568AD88C11E640A60"
                BuildableName = "Pods_Crave_App.framework"
                BlueprintName = "Pods-Crave App"
                ReferencedContainer = "container:Pods.xcodeproj">
