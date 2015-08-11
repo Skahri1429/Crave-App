@@ -22,18 +22,8 @@ class UserChoiceCollectionDataSource {
     var sortedMealObjects: [MealObject] = []
     
     var ingredientData:List<RealmString>!
-//    var currentUser = User() {
-//        didSet {
-//            self.ingredientData = self.currentUser.ingredientsLiked
-//            self.foodCategories = self.currentUser.relevantCategories
-//        }
-//    }
     
-    lazy var numElements: Int = {
-        
-        
-    return self.foodCategories.count
-}()
+    lazy var numElements: Int = { return self.foodCategories.count }()
     
     let CLIENT_ID = "GBFQRRGTBCGRIYX5H204VMOD1XRQRYDVZW1UCFNFYQVLKZLY"
     let CLIENT_SECRET = "KZRGDLJNGKDNVWSK2YID2WBAKRH2KBQ2ROIXPFW5FOFSNACU"
