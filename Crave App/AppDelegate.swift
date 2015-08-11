@@ -8,7 +8,7 @@
 
 import UIKit
 import SenseSdk
-import Realm
+import RealmSwift
 
 let themeColor = UIColor(red: 0.99, green: 0.90, blue: 0.80, alpha: 1.0)
 

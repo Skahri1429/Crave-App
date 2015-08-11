@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crave App/View Controllers/PlateViewController.swift"
@@ -117,7 +117,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crave App/View Controllers/PlateViewController.swift"
@@ -133,7 +133,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crave App/View Controllers/CategoriesCollectionViewController.swift"
@@ -228,6 +228,70 @@
             continueAfterRunningActions = "No"
             symbolName = "-[__NSArrayM insertObject:atIndex:]"
             moduleName = "">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crave App/View Controllers/CategoriesCollectionViewController.swift"
+            timestampString = "460964274.508411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Crave_App.CategoriesCollectionViewController.collectionView (Crave_App.CategoriesCollectionViewController)(ObjectiveC.UICollectionView, didSelectItemAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ()"
+                  moduleName = "Crave App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SarthakKhillon/Desktop/Crave%20App/Crave%20App/View%20Controllers/CategoriesCollectionViewController.swift"
+                  timestampString = "460964302.463394"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "16168">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead, Arg[1] = Value Promoted from InOut&gt; of Crave_App.CategoriesCollectionViewController.(collectionView (Crave_App.CategoriesCollectionViewController) -&gt; (ObjectiveC.UICollectionView, didSelectItemAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ()).(closure #1)"
+                  moduleName = "Crave App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SarthakKhillon/Desktop/Crave%20App/Crave%20App/View%20Controllers/CategoriesCollectionViewController.swift"
+                  timestampString = "460964302.4637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crave App/View Controllers/CategoriesCollectionViewController.swift"
+            timestampString = "460964276.293434"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
